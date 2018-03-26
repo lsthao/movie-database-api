@@ -10,6 +10,18 @@ The idea for this API came from the issue of not being able to find or decide on
 ## Project Objectives
 
 ## Project Plan
+Week 10
+[ ] Complete project objectives
+[ ] Create database
+[ ] Create entities/daos
+
+Week 11
+[ ] Map out relationships
+[ ] Create API endpoints
+[ ] Create webapp to consume api
+
+Week 12
+
 
 ## Database (Tables/Columns)
 * Movie
@@ -19,6 +31,7 @@ The idea for this API came from the issue of not being able to find or decide on
   * GenreID
   * ReleaseYear
   * AverageRating
+  * Rating (R/PG/etc...)
 * Genre
   * Genre ID
   * Genre Name
@@ -29,6 +42,26 @@ The idea for this API came from the issue of not being able to find or decide on
 ## API EndPoints & Usage
 
 ### Movies
-#### POST 
+#### POST - movieAPI/movies/add
+* add movie to database
+* return added movie in HTML or JSON
 
 #### GET
+#### movieAPI/movies/filter
+* gets movies based on filters:
+ * genre
+ * sorted by (?)
+ * director
+ * release year
+ * rating 
+ * averageRating
+ * amount of movies to return (otherwise will return all)
+ 
+#### movieAPI/movies/search/< keyword >
+* searches movie titles based on keyword
+
+#### movieAPI/movies/< movieID >
+ * if movieID is known, can get all metadata of specific movie
+
+
+
