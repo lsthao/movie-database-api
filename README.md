@@ -63,5 +63,6 @@ Week 12
 #### movieAPI/movies/< movieID >
  * if movieID is known, can get all metadata of specific movie
 
-
+***
+[Development Journal](Journal.md)
 
