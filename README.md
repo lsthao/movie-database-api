@@ -64,5 +64,5 @@ Week 12
  * if movieID is known, can get all metadata of specific movie
 
 ***
-[Development Journal](Journal.md)
+[Development Journal](DevelopmentJournal.md)
 
