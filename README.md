@@ -52,7 +52,7 @@ Week 12
  * genre
  * sorted by (?)
  * director
- * release year
+ * release year (range?)
  * rating 
  * averageRating
  * amount of movies to return (otherwise will return all)
