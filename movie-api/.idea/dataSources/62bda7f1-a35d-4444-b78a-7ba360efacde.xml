@@ -89,66 +89,70 @@
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="30" parent="12" name="Movies_Director_id_fk">
+    <column id="30" parent="12" name="title">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <index id="31" parent="12" name="Movies_Director_id_fk">
       <ColNames>directorID</ColNames>
     </index>
-    <index id="31" parent="12" name="Movies_Genre_id_fk">
+    <index id="32" parent="12" name="Movies_Genre_id_fk">
       <ColNames>genreID</ColNames>
     </index>
-    <index id="32" parent="12" name="Movies_id_uindex">
+    <index id="33" parent="12" name="Movies_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="33" parent="12" name="Movies_Rating_id_fk">
+    <index id="34" parent="12" name="Movies_Rating_id_fk">
       <ColNames>ratingID</ColNames>
     </index>
-    <key id="34" parent="12" name="PRIMARY">
+    <key id="35" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="35" parent="12" name="Movies_id_uindex">
+    <key id="36" parent="12" name="Movies_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>Movies_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="36" parent="12" name="Movies_Director_id_fk">
+    <foreign-key id="37" parent="12" name="Movies_Director_id_fk">
       <ColNames>directorID</ColNames>
       <RefSchemaName>movie_database</RefSchemaName>
       <RefTableName>Director</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="37" parent="12" name="Movies_Genre_id_fk">
+    <foreign-key id="38" parent="12" name="Movies_Genre_id_fk">
       <ColNames>genreID</ColNames>
       <RefSchemaName>movie_database</RefSchemaName>
       <RefTableName>Genre</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="38" parent="12" name="Movies_Rating_id_fk">
+    <foreign-key id="39" parent="12" name="Movies_Rating_id_fk">
       <ColNames>ratingID</ColNames>
       <RefSchemaName>movie_database</RefSchemaName>
       <RefTableName>Rating</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="39" parent="13" name="id">
+    <column id="40" parent="13" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="40" parent="13" name="ratingName">
+    <column id="41" parent="13" name="ratingName">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <index id="41" parent="13" name="Rating_id_uindex">
+    <index id="42" parent="13" name="Rating_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="42" parent="13" name="PRIMARY">
+    <key id="43" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="43" parent="13" name="Rating_id_uindex">
+    <key id="44" parent="13" name="Rating_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>Rating_id_uindex</UnderlyingIndexName>
     </key>
