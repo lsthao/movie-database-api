@@ -21,6 +21,7 @@ Week 11
 - [ ] Create webapp to consume api
 
 Week 12
+- [ ] team project presentations!
 
 
 ## Database (Tables/Columns)
@@ -58,11 +59,13 @@ Week 12
  * rating 
  * amount of movies to return (otherwise will return all)
  
+
 #### movieAPI/movies/search/< keyword >
 * searches movie titles based on keyword
 
 #### movieAPI/movies/< movieID >
  * if movieID is known, can get all metadata of specific movie
+
 
 ***
 [Development Journal](DevelopmentJournal.md)
