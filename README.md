@@ -25,21 +25,21 @@ Week 12
 
 ## Database (Tables/Columns)
 * Movie
-  * MovieID
-  * Description
-  * DirectorID
-  * GenreID
-  * ReleaseYear
-  * Rating (R/PG/etc...)
+  * id
+  * description
+  * directorID
+  * genreID
+  * releaseYear
+  * rating 
 * Genre
-  * Genre ID
-  * Genre Name
+  * id
+  * genreName
 * Director
-  * DirectorID
-  * DirectorName
+  * id
+  * directorName
 * Rating
- * RatingID
- * RatingName
+ * id
+ * ratingName
 
 ## API EndPoints & Usage
 
@@ -56,7 +56,6 @@ Week 12
  * director
  * release year (range?)
  * rating 
- * averageRating
  * amount of movies to return (otherwise will return all)
  
 #### movieAPI/movies/search/< keyword >
