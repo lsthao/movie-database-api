@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="movieapi" />
+        <module name="movie-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="movieapi" target="1.5" />
+      <module name="movie-api" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
