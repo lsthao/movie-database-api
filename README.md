@@ -30,7 +30,6 @@ Week 12
   * DirectorID
   * GenreID
   * ReleaseYear
-  * AverageRating
   * Rating (R/PG/etc...)
 * Genre
   * Genre ID
@@ -38,13 +37,16 @@ Week 12
 * Director
   * DirectorID
   * DirectorName
+* Rating
+ * RatingID
+ * RatingName
 
 ## API EndPoints & Usage
 
 ### Movies
 #### POST - movieAPI/movies/add
 * add movie to database
-* return added movie in HTML or JSON
+* return added movie in JSON
 
 #### GET
 #### movieAPI/movies/filter
