@@ -1,4 +1,4 @@
-#Development Journal
+##Development Journal
 
 [Time Log](TimeLog.md)
 
