@@ -23,7 +23,8 @@ public class Director {
 
     }
 
-    public Director(String directorName){
+    public Director(int id, String directorName){
+        this.id = id;
         this.directorName = directorName;
     }
 
