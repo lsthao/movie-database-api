@@ -4,6 +4,8 @@ package edu.matc.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A class to represent a rating
@@ -11,14 +13,17 @@ import javax.persistence.*;
 @Entity(name = "Rating")
 @Table(name = "Rating")
 public class Rating {
-    @Column(name = "ratingName")
-    private String ratingName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name="native", strategy="native")
-    private int rating;
+    private int id;
 
+    @Column(name = "ratingName")
+    private String ratingName;
+
+    @OneToMany(mappedBy = "rating", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Movies> movies = new HashSet<>();
 
     /**
      * No argument constructor
@@ -34,12 +39,12 @@ public class Rating {
         this.ratingName = ratingName;
     }
 
-    public int getRating() {
-        return rating;
+    public int getId() {
+        return id;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setId(int rating) {
+        this.id = rating;
     }
 
     public String getRatingName() {
@@ -48,5 +53,23 @@ public class Rating {
 
     public void setRatingName(String ratingName) {
         this.ratingName = ratingName;
+    }
+
+    public Set<Movies> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(Set<Movies> movies) {
+        this.movies = movies;
+    }
+
+    public void addMovie(Movies movie) {
+        movies.add(movie);
+        movie.setRating(this);
+    }
+
+    public void removeMovie(Movies movie) {
+        movies.remove(movie);
+        movie.setRating(null);
     }
 }

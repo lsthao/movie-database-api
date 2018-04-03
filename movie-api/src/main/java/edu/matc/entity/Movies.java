@@ -25,6 +25,11 @@ public class Movies {
     @ManyToOne(cascade = {CascadeType.ALL})
     private Genre genre;
 
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Rating rating;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Director director;
     /**
      * no-argument constructor
      */
@@ -35,10 +40,14 @@ public class Movies {
     /**
      * Instantiates a new director
      */
-    public Movies(String description,int releaseYear, String title, Genre genre){
+    public Movies(String description,int releaseYear, String title, Genre genre,
+                  Director director, Rating rating){
         this.description = description;
         this.releaseYear = releaseYear;
         this.title = title;
+        this.genre = genre;
+        this.director = director;
+        this.rating = rating;
     }
     public int getId() {
         return id;
@@ -79,5 +88,21 @@ public class Movies {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
     }
 }
