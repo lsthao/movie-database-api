@@ -11,12 +11,12 @@ The idea for this API came from the issue of not being able to find or decide on
 
 ## Project Plan
 Week 10
-- [ ] Complete project objectives
-- [ ] Create database
-- [ ] Create entities/daos
+- [x] Complete project objectives
+- [x] Create database
+- [x] Create entities/daos
 
 Week 11
-- [ ] Map out relationships
+- [x] Map out relationships
 - [ ] Create API endpoints
 - [ ] Create webapp to consume api
 
