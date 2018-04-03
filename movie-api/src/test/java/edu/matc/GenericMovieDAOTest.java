@@ -5,6 +5,7 @@ import edu.matc.entity.Genre;
 import edu.matc.entity.Movies;
 import edu.matc.entity.Rating;
 import edu.matc.persistence.GenericDAO;
+import edu.matc.persistence.MoviesDAO;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class GenericMovieDAOTest {
     GenericDAO movieDAO;
     int initialNumberOfMovies;
+    MoviesDAO entMoviesDAO;
 
     private Logger logger = Logger.getLogger(this.getClass());
 
@@ -28,6 +30,7 @@ public class GenericMovieDAOTest {
 
         movieDAO= new GenericDAO(Movies.class);
         initialNumberOfMovies = movieDAO.getAll().size();
+        entMoviesDAO = new MoviesDAO();
     }
 
     @Test
@@ -94,6 +97,34 @@ public class GenericMovieDAOTest {
         assertNotNull(movie);
         assertEquals(1, movie.getId());
         assertEquals("test movie title", movie.getTitle());
+    }
+
+    @Test
+    public void getMovieByProperty() {
+
+        List<Movies> movies = entMoviesDAO.getByPropertyEqual("genre", "com");
+        assertEquals(1, movies.size());
+        assertEquals(1, movies.get(0).getId());
+    }
+
+    @Test
+    public void getMovieLikeProperty() {
+        List<Movies> movies = entMoviesDAO.getByPropertyEqual("genre", "comedy");
+        for(Movies movie : movies) {
+            logger.info(movie.getGenre().getGenreName());
+        }
+        assertEquals(2, movies.size());
+    }
+
+    @Test
+    public void getRelatedMoviesTest() {
+        List<Movies> movies = entMoviesDAO.getRelatedMovies(1);
+        for (Movies movie : movies){
+                logger.info(movie.getTitle());
+                logger.info(movie.getGenre().getGenreName());
+                logger.info(movie.getDirector().getDirectorName());
+        }
+        // TODO asserts Equals and trues
     }
 
 

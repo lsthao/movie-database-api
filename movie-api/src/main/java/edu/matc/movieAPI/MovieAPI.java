@@ -20,10 +20,15 @@ public class MovieAPI {
         GenericDAO movieDAO = new GenericDAO(Movies.class);
 
         Movies movie = (Movies)movieDAO.getByID(Integer.parseInt(id));
+        if (movie != null) {
         String output = "Movie Title: " + movie.getTitle() + "\n"
                 + "Description: " + movie.getDescription()+ "\n";
 
         return Response.status(200).entity(output).build();
+        } else {
+            String output = "Status 404: Movie Not Found";
+            return Response.status(404).entity(output).build();
+        }
     }
 
 }
