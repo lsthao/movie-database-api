@@ -1,6 +1,6 @@
 package edu.matc.persistence;
 
-import edu.matc.entity.Movies;
+import edu.matc.entity.Genre;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,60 +11,61 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class MovieDAO {
+public class GenreDAO {
 
     private final Logger logger = Logger.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
-    public List<Movies> getAll() {
+    public List<Genre> getAll() {
         Session session = sessionFactory.openSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Movies> query = builder.createQuery(Movies.class);
+        CriteriaQuery<Genre> query = builder.createQuery(Genre.class);
 
-        Root<Movies> root = query.from(Movies.class);
-        List<Movies> movies = session.createQuery(query).getResultList();
+        Root<Genre> root = query.from(Genre.class);
+        List<Genre> genres = session.createQuery(query).getResultList();
 
         session.close();
 
-        return movies;
+        return genres;
     }
 
     /**
-     * Get movie by ID
-     * @param id id of movie
+     * Get genre by ID
+     * @param id id of genre
      */
-    public Movies getByID(int id) {
+    public Genre getByID(int id) {
         Session session = sessionFactory.openSession();
-        Movies movie = session.get(Movies.class, id);
+        logger.info(id);
+        Genre genre = session.get(Genre.class, id);
         session.close();
-        return movie;
+        return genre;
     }
 
     /**
-     * Update movie
-     * @param movie movie to be updated
+     * Update genre
+     * @param genre genre to be updated
      */
-    public void update(Movies movie) {
+    public void update(Genre genre) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(movie);
+        session.saveOrUpdate(genre);
         transaction.commit();
         session.close();
 
     }
 
     /**
-     * Add a movie
-     * @param movie movie to be added
+     * Add a genre
+     * @param genre genre to be added
      */
 
-    public int add(Movies movie) {
+    public int add(Genre genre) {
         int id = 0;
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        id = (Integer)session.save(movie);
+        id = (Integer)session.save(genre);
         transaction.commit();
         session.close();
         return id;
@@ -72,13 +73,13 @@ public class MovieDAO {
     }
 
     /**
-     * Delete a movie
-     * @param movie
+     * Delete a genre
+     * @param genre
      */
-    public void delete(Movies movie) {
+    public void delete(Genre genre) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(movie);
+        session.delete(genre);
         transaction.commit();
         session.close();
     }

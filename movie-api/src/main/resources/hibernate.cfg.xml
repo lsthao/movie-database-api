@@ -23,7 +23,8 @@
         <!-- List the annotated entity class/es -->
         <mapping class="edu.matc.entity.Director"/>
         <mapping class="edu.matc.entity.Rating"/>
-
+        <mapping class="edu.matc.entity.Movies"/>
+        <mapping class="edu.matc.entity.Genre"/>
     </session-factory>
 
 </hibernate-configuration>

@@ -9,27 +9,21 @@ import javax.persistence.*;
 @Table(name = "Movies")
 public class Movies {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     private int id;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name = "directorID")
-    private int directorID;
-
-    @Column(name="genreID")
-    private int genreID;
-
     @Column(name="releaseYear")
-    private String releaseYear;
-
-    @Column(name="ratingID")
-    private int ratingID;
+    private int releaseYear;
 
     @Column(name = "title")
     private String title;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Genre genre;
 
     /**
      * no-argument constructor
@@ -41,13 +35,9 @@ public class Movies {
     /**
      * Instantiates a new director
      */
-    public Movies(int id, String description, int directorID, int genreID, String releaseYear, int ratingID, String title){
-        this.id = id;
+    public Movies(String description,int releaseYear, String title, Genre genre){
         this.description = description;
-        this.directorID = directorID;
-        this.genreID = genreID;
         this.releaseYear = releaseYear;
-        this.ratingID = ratingID;
         this.title = title;
     }
     public int getId() {
@@ -66,36 +56,13 @@ public class Movies {
         this.description = description;
     }
 
-    public int getDirectorID() {
-        return directorID;
-    }
 
-    public void setDirectorID(int directorID) {
-        this.directorID = directorID;
-    }
-
-    public int getGenreID() {
-        return genreID;
-    }
-
-    public void setGenreID(int genreID) {
-        this.genreID = genreID;
-    }
-
-    public String getReleaseYear() {
+    public int getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(String releaseYear) {
+    public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
-    }
-
-    public int getRatingID() {
-        return ratingID;
-    }
-
-    public void setRatingID(int ratingID) {
-        this.ratingID = ratingID;
     }
 
     public String getTitle() {
@@ -104,5 +71,13 @@ public class Movies {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 }

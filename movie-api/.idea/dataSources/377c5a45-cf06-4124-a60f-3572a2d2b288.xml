@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="movie_database@localhost">
+<dataSource name="hibernate.cfg.xml/Hibernate">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
     <root id="1"/>
     <schema id="2" parent="1" name="movie_database">
@@ -73,11 +73,11 @@
       <Position>2</Position>
       <DataType>varchar(300)|0</DataType>
     </column>
-    <column id="26" parent="12" name="director_id">
+    <column id="26" parent="12" name="directorID">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="27" parent="12" name="genre_id">
+    <column id="27" parent="12" name="genreID">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
@@ -85,7 +85,7 @@
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="29" parent="12" name="rating_id">
+    <column id="29" parent="12" name="ratingID">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
@@ -94,17 +94,17 @@
       <DataType>varchar(100)|0</DataType>
     </column>
     <index id="31" parent="12" name="Movies_Director_id_fk">
-      <ColNames>director_id</ColNames>
+      <ColNames>directorID</ColNames>
     </index>
     <index id="32" parent="12" name="Movies_Genre_id_fk">
-      <ColNames>genre_id</ColNames>
+      <ColNames>genreID</ColNames>
     </index>
     <index id="33" parent="12" name="Movies_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="34" parent="12" name="Movies_Rating_id_fk">
-      <ColNames>rating_id</ColNames>
+      <ColNames>ratingID</ColNames>
     </index>
     <key id="35" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -116,19 +116,19 @@
       <UnderlyingIndexName>Movies_id_uindex</UnderlyingIndexName>
     </key>
     <foreign-key id="37" parent="12" name="Movies_Director_id_fk">
-      <ColNames>director_id</ColNames>
+      <ColNames>directorID</ColNames>
       <RefSchemaName>movie_database</RefSchemaName>
       <RefTableName>Director</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="38" parent="12" name="Movies_Genre_id_fk">
-      <ColNames>genre_id</ColNames>
+      <ColNames>genreID</ColNames>
       <RefSchemaName>movie_database</RefSchemaName>
       <RefTableName>Genre</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="39" parent="12" name="Movies_Rating_id_fk">
-      <ColNames>rating_id</ColNames>
+      <ColNames>ratingID</ColNames>
       <RefSchemaName>movie_database</RefSchemaName>
       <RefTableName>Rating</RefTableName>
       <RefColNames>id</RefColNames>
