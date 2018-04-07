@@ -5,12 +5,33 @@
   Time: 1:11 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
 <html>
-<head>
-    <title>Title</title>
-</head>
+<title>All Movies</title>
+
 <body>
 
+<div class="container-fluid">
+    <h2>Search Results: </h2>
+
+    <table border="1px" width="100px">
+        <th>Id</th>
+        <th>Description</th>
+        <th>Title</th>
+
+        <c:forEach items="${movies}" var="movie">
+
+            <tr>
+                <td>${movie.id}</td>
+                <td>${movie.description}</td>
+                <td>${movie.title}</td>
+            </tr>
+        </c:forEach>
+
+    </table>
+</div>
 </body>
 </html>
