@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="edu.matc.GenericMovieDAOTest" time="11.793" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="edu.matc.GenericMovieDAOTest" time="1.484" errors="3" skipped="0">
   <properties>
-    <property name="idea.version" value="2017.2.6"/>
+    <property name="idea.version" value="2017.2.7"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
     <property name="java.vm.version" value="25.144-b01"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/student/Enterprise/movie-database-api/movie-api"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/student/IdeaProjects/movie-database-api/movie-api"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/student/Enterprise/movie-database-api/movie-api"/>
+    <property name="user.dir" value="/home/student/IdeaProjects/movie-database-api/movie-api"/>
     <property name="java.runtime.version" value="1.8.0_144-b01"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="4.4.0-116-generic"/>
+    <property name="os.version" value="4.4.0-112-generic"/>
     <property name="user.home" value="/home/student"/>
     <property name="user.timezone" value="America/Chicago"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
@@ -43,7 +43,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2017.2.6 install"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2017.2.7 install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -61,9 +61,215 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="edu.matc.GenericMovieDAOTest" name="updateMovieTest" time="10.637"/>
-  <testcase classname="edu.matc.GenericMovieDAOTest" name="addTest" time="0.672"/>
-  <testcase classname="edu.matc.GenericMovieDAOTest" name="getAllMoviesTest" time="0.171"/>
-  <testcase classname="edu.matc.GenericMovieDAOTest" name="getMovieByID" time="0.138"/>
-  <testcase classname="edu.matc.GenericMovieDAOTest" name="deleteMovieTest" time="0.175"/>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="updateMovieTest" time="1.274"/>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="addTest" time="0.042"/>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="getMovieByProperty" time="0.029">
+    <error message="org.hibernate.property.access.spi.PropertyAccessException: Error accessing field [private int edu.matc.entity.Genre.id] by reflection for persistent property [edu.matc.entity.Genre#id] : com" type="javax.persistence.PersistenceException">javax.persistence.PersistenceException: org.hibernate.property.access.spi.PropertyAccessException: Error accessing field [private int edu.matc.entity.Genre.id] by reflection for persistent property [edu.matc.entity.Genre#id] : com
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:149)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:157)
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1423)
+	at org.hibernate.query.Query.getResultList(Query.java:146)
+	at org.hibernate.query.criteria.internal.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:72)
+	at edu.matc.persistence.MoviesDAO.getByPropertyEqual(MoviesDAO.java:61)
+	at edu.matc.GenericMovieDAOTest.getMovieByProperty(GenericMovieDAOTest.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.hibernate.property.access.spi.PropertyAccessException: Error accessing field [private int edu.matc.entity.Genre.id] by reflection for persistent property [edu.matc.entity.Genre#id] : com
+	at org.hibernate.property.access.spi.GetterFieldImpl.get(GetterFieldImpl.java:74)
+	at org.hibernate.tuple.entity.AbstractEntityTuplizer.getIdentifier(AbstractEntityTuplizer.java:230)
+	at org.hibernate.persister.entity.AbstractEntityPersister.getIdentifier(AbstractEntityPersister.java:4735)
+	at org.hibernate.persister.entity.AbstractEntityPersister.isTransient(AbstractEntityPersister.java:4435)
+	at org.hibernate.engine.internal.ForeignKeys.isTransient(ForeignKeys.java:226)
+	at org.hibernate.engine.internal.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:276)
+	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:462)
+	at org.hibernate.type.ManyToOneType.nullSafeSet(ManyToOneType.java:161)
+	at org.hibernate.param.NamedParameterSpecification.bind(NamedParameterSpecification.java:53)
+	at org.hibernate.loader.hql.QueryLoader.bindParameterValues(QueryLoader.java:628)
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:2001)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1915)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1893)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:938)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:341)
+	at org.hibernate.loader.Loader.doList(Loader.java:2692)
+	at org.hibernate.loader.Loader.doList(Loader.java:2675)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2507)
+	at org.hibernate.loader.Loader.list(Loader.java:2502)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:502)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:384)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:216)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1490)
+	at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1445)
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1414)
+	... 34 more
+Caused by: java.lang.IllegalArgumentException: Can not set int field edu.matc.entity.Genre.id to java.lang.String
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeFieldAccessorImpl.ensureObj(UnsafeFieldAccessorImpl.java:58)
+	at sun.reflect.UnsafeIntegerFieldAccessorImpl.getInt(UnsafeIntegerFieldAccessorImpl.java:56)
+	at java.lang.reflect.Field.getInt(Field.java:574)
+	at org.hibernate.property.access.spi.GetterFieldImpl.get(GetterFieldImpl.java:61)
+	... 58 more
+</error>
+    <system-out>2018-04-07 16:14:34,094 1087 [main] ERROR edu.matc.util.Database  - Duplicate entry &apos;1&apos; for key &apos;PRIMARY&apos;
+Hibernate: select movies0_.id as id1_2_, movies0_.description as descript2_2_, movies0_.director_id as director5_2_, movies0_.genre_id as genre_id6_2_, movies0_.rating_id as rating_i7_2_, movies0_.releaseYear as releaseY3_2_, movies0_.title as title4_2_ from Movies movies0_
+Hibernate: select movies0_.id as id1_2_, movies0_.description as descript2_2_, movies0_.director_id as director5_2_, movies0_.genre_id as genre_id6_2_, movies0_.rating_id as rating_i7_2_, movies0_.releaseYear as releaseY3_2_, movies0_.title as title4_2_ from Movies movies0_ where movies0_.genre_id=?
+</system-out>
+    <system-err>Sat Apr 07 16:14:34 CDT 2018 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+</system-err>
+  </testcase>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="getRelatedMoviesTest" time="0.012">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at edu.matc.persistence.MoviesDAO.getRelatedMovies(MoviesDAO.java:25)
+	at edu.matc.GenericMovieDAOTest.getRelatedMoviesTest(GenericMovieDAOTest.java:121)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>2018-04-07 16:14:34,122 1115 [main] ERROR edu.matc.util.Database  - Duplicate entry &apos;1&apos; for key &apos;PRIMARY&apos;
+Hibernate: select movies0_.id as id1_2_, movies0_.description as descript2_2_, movies0_.director_id as director5_2_, movies0_.genre_id as genre_id6_2_, movies0_.rating_id as rating_i7_2_, movies0_.releaseYear as releaseY3_2_, movies0_.title as title4_2_ from Movies movies0_
+Hibernate: select movies0_.id as id1_2_0_, movies0_.description as descript2_2_0_, movies0_.director_id as director5_2_0_, movies0_.genre_id as genre_id6_2_0_, movies0_.rating_id as rating_i7_2_0_, movies0_.releaseYear as releaseY3_2_0_, movies0_.title as title4_2_0_, director1_.id as id1_0_1_, director1_.directorName as director2_0_1_, genre2_.id as id1_1_2_, genre2_.genreName as genreNam2_1_2_, rating3_.id as id1_3_3_, rating3_.ratingName as ratingNa2_3_3_ from Movies movies0_ left outer join Director director1_ on movies0_.director_id=director1_.id left outer join Genre genre2_ on movies0_.genre_id=genre2_.id left outer join Rating rating3_ on movies0_.rating_id=rating3_.id where movies0_.id=?
+</system-out>
+    <system-err>Sat Apr 07 16:14:34 CDT 2018 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+</system-err>
+  </testcase>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="getAllMoviesTest" time="0.029"/>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="getMovieByID" time="0.037"/>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="getMovieLikeProperty" time="0.027">
+    <error message="org.hibernate.property.access.spi.PropertyAccessException: Error accessing field [private int edu.matc.entity.Genre.id] by reflection for persistent property [edu.matc.entity.Genre#id] : comedy" type="javax.persistence.PersistenceException">javax.persistence.PersistenceException: org.hibernate.property.access.spi.PropertyAccessException: Error accessing field [private int edu.matc.entity.Genre.id] by reflection for persistent property [edu.matc.entity.Genre#id] : comedy
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:149)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:157)
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1423)
+	at org.hibernate.query.Query.getResultList(Query.java:146)
+	at org.hibernate.query.criteria.internal.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:72)
+	at edu.matc.persistence.MoviesDAO.getByPropertyEqual(MoviesDAO.java:61)
+	at edu.matc.GenericMovieDAOTest.getMovieLikeProperty(GenericMovieDAOTest.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.hibernate.property.access.spi.PropertyAccessException: Error accessing field [private int edu.matc.entity.Genre.id] by reflection for persistent property [edu.matc.entity.Genre#id] : comedy
+	at org.hibernate.property.access.spi.GetterFieldImpl.get(GetterFieldImpl.java:74)
+	at org.hibernate.tuple.entity.AbstractEntityTuplizer.getIdentifier(AbstractEntityTuplizer.java:230)
+	at org.hibernate.persister.entity.AbstractEntityPersister.getIdentifier(AbstractEntityPersister.java:4735)
+	at org.hibernate.persister.entity.AbstractEntityPersister.isTransient(AbstractEntityPersister.java:4435)
+	at org.hibernate.engine.internal.ForeignKeys.isTransient(ForeignKeys.java:226)
+	at org.hibernate.engine.internal.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:276)
+	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:462)
+	at org.hibernate.type.ManyToOneType.nullSafeSet(ManyToOneType.java:161)
+	at org.hibernate.param.NamedParameterSpecification.bind(NamedParameterSpecification.java:53)
+	at org.hibernate.loader.hql.QueryLoader.bindParameterValues(QueryLoader.java:628)
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:2001)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1915)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1893)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:938)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:341)
+	at org.hibernate.loader.Loader.doList(Loader.java:2692)
+	at org.hibernate.loader.Loader.doList(Loader.java:2675)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2507)
+	at org.hibernate.loader.Loader.list(Loader.java:2502)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:502)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:384)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:216)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1490)
+	at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1445)
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1414)
+	... 34 more
+Caused by: java.lang.IllegalArgumentException: Can not set int field edu.matc.entity.Genre.id to java.lang.String
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeFieldAccessorImpl.ensureObj(UnsafeFieldAccessorImpl.java:58)
+	at sun.reflect.UnsafeIntegerFieldAccessorImpl.getInt(UnsafeIntegerFieldAccessorImpl.java:56)
+	at java.lang.reflect.Field.getInt(Field.java:574)
+	at org.hibernate.property.access.spi.GetterFieldImpl.get(GetterFieldImpl.java:61)
+	... 58 more
+</error>
+    <system-out>2018-04-07 16:14:34,219 1212 [main] ERROR edu.matc.util.Database  - Duplicate entry &apos;1&apos; for key &apos;PRIMARY&apos;
+Hibernate: select movies0_.id as id1_2_, movies0_.description as descript2_2_, movies0_.director_id as director5_2_, movies0_.genre_id as genre_id6_2_, movies0_.rating_id as rating_i7_2_, movies0_.releaseYear as releaseY3_2_, movies0_.title as title4_2_ from Movies movies0_
+Hibernate: select movies0_.id as id1_2_, movies0_.description as descript2_2_, movies0_.director_id as director5_2_, movies0_.genre_id as genre_id6_2_, movies0_.rating_id as rating_i7_2_, movies0_.releaseYear as releaseY3_2_, movies0_.title as title4_2_ from Movies movies0_ where movies0_.genre_id=?
+</system-out>
+    <system-err>Sat Apr 07 16:14:34 CDT 2018 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+</system-err>
+  </testcase>
+  <testcase classname="edu.matc.GenericMovieDAOTest" name="deleteMovieTest" time="0.034"/>
 </testsuite>

@@ -1,3 +1,5 @@
+edu/matc/controller/MovieSuggester.class
 edu/matc/movieAPI/HelloWorld.class
 edu/matc/movieAPI/MovieAPI.class
 edu/matc/movieAPI/UserApplication.class
+edu/matc/controller/AllMovies.class
