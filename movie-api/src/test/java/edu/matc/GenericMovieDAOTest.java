@@ -99,33 +99,33 @@ public class GenericMovieDAOTest {
         assertEquals("test movie title", movie.getTitle());
     }
 
-//    @Test
-//    public void getMovieByProperty() {
-//
-//        List<Movies> movies = entMoviesDAO.getByPropertyEqual("genre", "com");
-//        assertEquals(1, movies.size());
-//        assertEquals(1, movies.get(0).getId());
-//    }
-//
-//    @Test
-//    public void getMovieLikeProperty() {
-//        List<Movies> movies = entMoviesDAO.getByPropertyEqual("genre", "comedy");
-//        for(Movies movie : movies) {
-//            logger.info(movie.getGenre().getGenreName());
-//        }
-//        assertEquals(2, movies.size());
-//    }
-//
-//    @Test
-//    public void getRelatedMoviesTest() {
-//        List<Movies> movies = entMoviesDAO.getRelatedMovies(1);
-//        for (Movies movie : movies){
-//                logger.info(movie.getTitle());
-//                logger.info(movie.getGenre().getGenreName());
-//                logger.info(movie.getDirector().getDirectorName());
-//        }
-//        // TODO asserts Equals and trues
-//    }
+    @Test
+    public void getMovieByProperty() {
+
+        List<Movies> movies = entMoviesDAO.getByPropertyEqual("genre", "com");
+        assertEquals(1, movies.size());
+        assertEquals(1, movies.get(0).getId());
+    }
+
+    @Test
+    public void getMovieLikeProperty() {
+        List<Movies> movies = entMoviesDAO.getByPropertyEqual("genre", "comedy");
+        for(Movies movie : movies) {
+            logger.info(movie.getGenre().getGenreName());
+        }
+        assertEquals(2, movies.size());
+    }
+
+    @Test
+    public void getRelatedMoviesTest() {
+        List<Movies> movies = entMoviesDAO.getRelatedMovies(1);
+        for (Movies movie : movies){
+                logger.info(movie.getTitle());
+                logger.info(movie.getGenre().getGenreName());
+                logger.info(movie.getDirector().getDirectorName());
+        }
+        // TODO asserts Equals and trues
+    }
 
 
 }
