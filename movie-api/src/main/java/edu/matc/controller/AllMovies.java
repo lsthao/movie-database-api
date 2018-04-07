@@ -1,4 +1,4 @@
 package edu.matc.controller;
 
-public class Servlet {
+public class AllMovies {
 }

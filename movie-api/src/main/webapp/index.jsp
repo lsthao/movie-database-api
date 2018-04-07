@@ -1,5 +1,58 @@
 <html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false" %>
+<c:set var = "title" value = "Madison Movie Database API"/>
+<%@include file="jsp-contents/head.jsp" %>
 <body>
-<h2>Hello World!</h2>
+<h1>Welcome to Madison Movie Database!</h1>
+<h2>Links</h2>
+  <h3>
+      <ul>
+          <li><a href="allMovies">See All Movies</a></li>
+          <li><a href="movieSuggester">Get Movies Suggestions</a></li>
+          <li><a href="addMovie">Add a Movie</a></li>
+      </ul>
+  </h3>
+
+<h2>Movies Endpoints</h2>
+  <h4>movieAPI/movies/{id}</h4>
+    <ul>
+        <li>Endpoint for movies by ID</li>
+    </ul>
+  <h4>moviesAPI/movies/all</h4>
+    <ul>
+        <li>Endpoint for all movies</li>
+    </ul>
+  <h4>moviesAPI/</h4>
+
+<h2>Genre Endpoints</h2>
+  <h4>moviesAPI/genre/JSON/all</h4>
+    <ul>
+        <li>Endpoint for all genres in JSON</li>
+    </ul>
+  <h4>moviesAPI/genre/JSON/< id ></h4>
+    <ul>
+        <li>Endpoint for genre by ID in JSON</li>
+    </ul>
+
+<h2>Director Endpoints</h2>
+  <h4>moviesAPI/director/JSON/all</h4>
+    <ul>
+        <li>Endpoint for all directors in JSON</li>
+    </ul>
+  <h4>moviesAPI/director/JSON/< id ></h4>
+    <ul>
+        <li>Endpoint for director by ID in JSON</li>
+    </ul>
+
+<h2>Rating Endpoints</h2>
+  <h4>moviesAPI/rating/JSON/all</h4>
+    <ul>
+        <li>Endpoint for all ratings in JSON</li>
+    </ul>
+  <h4>moviesAPI/rating/JSON/< id ></h4>
+    <ul>
+        <li>Endpoint for rating by ID in JSON</li>
+    </ul>
 </body>
 </html>
