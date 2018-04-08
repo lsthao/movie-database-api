@@ -1,5 +1,6 @@
 package edu.matc;
 
+import edu.matc.entity.Director;
 import edu.matc.entity.Genre;
 import edu.matc.entity.Movies;
 import edu.matc.persistence.GenericDAO;
@@ -9,9 +10,15 @@ import edu.matc.util.JsonParser;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
+import sun.net.www.content.text.Generic;
 
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.util.List;
+
+>>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -48,10 +55,24 @@ public class JsonParserTest {
     }
 
     @Test
+<<<<<<< HEAD
     public void checkIfAllMoviesWorks() throws IOException {
         GenericDAO dao = new GenericDAO(Movies.class);
         JsonParser parser = new JsonParser();
         dao.getAll();
         assertNotNull(parser.returnJson(dao), "The parser contains json");
+=======
+    public void getAllDirectors() {
+        GenericDAO dao = new GenericDAO(Director.class);
+        Director director = (Director) dao.getByID(1);
+        List<Director> allDirectors = dao.getAll();
+        JsonParser parser = new JsonParser();
+        try {
+            System.out.println(parser.returnJson(allDirectors));
+        } catch (IOException ioexception) {
+            logger.error(ioexception.getMessage());
+        }
+
+>>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
     }
 }

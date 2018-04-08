@@ -3,29 +3,52 @@ package edu.matc.movieAPI;
 import edu.matc.entity.Director;
 import edu.matc.entity.Movies;
 import edu.matc.persistence.GenericDAO;
+import edu.matc.util.JsonParser;
+import org.apache.log4j.Logger;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import javax.persistence.Transient;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
 import java.util.List;
 
 @Path("/directors")
 public class DirectorAPI {
 
     GenericDAO directorDAO = new GenericDAO(Director.class);
+    JsonParser jsonParser = new JsonParser();
+    Logger logger = Logger.getLogger(this.getClass());
 
     // The Java method will process HTTP GET requests
     @GET
     // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces({"application/json", "text/plain"})
+
     @Path("/all")
     public Response getDirectors() {
-
+        logger.info("getting directors");
         List<Director> allDirectors = directorDAO.getAll();
+        String stringResponse = "";
+        logger.info("got all directors");
+        try {
+            logger.info("starting the try block");
+            stringResponse += jsonParser.returnJson(allDirectors);
+            logger.debug("in the try block and added parsedjson");
+        } catch (IOException ioException) {
+            logger.error(ioException.getMessage());
+        }
 
+<<<<<<< HEAD
         //String stringResponse = returnJson(allDirectors);
 
         String stringResponse = "";
+=======
+        logger.debug("string response: " + stringResponse);
+>>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
         return Response.status(200).entity(stringResponse).build();
     }
 
