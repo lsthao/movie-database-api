@@ -1,6 +1,7 @@
 package edu.matc.entity;
 
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ public class Rating {
     private String ratingName;
 
     @OneToMany(mappedBy = "rating", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Movies> movies = new HashSet<>();
 
     /**

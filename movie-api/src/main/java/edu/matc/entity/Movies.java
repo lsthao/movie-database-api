@@ -22,13 +22,13 @@ public class Movies {
     @Column(name = "title")
     private String title;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     private Genre genre;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     private Rating rating;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     private Director director;
     /**
      * no-argument constructor
