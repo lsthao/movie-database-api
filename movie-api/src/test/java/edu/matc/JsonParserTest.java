@@ -1,5 +1,6 @@
 package edu.matc;
 
+import edu.matc.entity.Director;
 import edu.matc.entity.Genre;
 import edu.matc.entity.Movies;
 import edu.matc.persistence.GenericDAO;
@@ -9,10 +10,11 @@ import edu.matc.util.JsonParser;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
+import sun.net.www.content.text.Generic;
 
 
 import java.io.IOException;
-
+import java.util.List;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,6 +48,20 @@ public class JsonParserTest {
         System.out.println(parser.returnJson(dao));
 
         assertNotNull(parser.returnJson(dao), "The parser contains json");
+
+    }
+
+    @Test
+    public void getAllDirectors() {
+        GenericDAO dao = new GenericDAO(Director.class);
+        Director director = (Director) dao.getByID(1);
+        List<Director> allDirectors = dao.getAll();
+        JsonParser parser = new JsonParser();
+        try {
+            System.out.println(parser.returnJson(allDirectors));
+        } catch (IOException ioexception) {
+            logger.error(ioexception.getMessage());
+        }
 
     }
 }
