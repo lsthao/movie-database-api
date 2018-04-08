@@ -20,7 +20,7 @@ public class UserApplication extends Application {
         HashSet h = new HashSet<Class<?>>();
         h.add(HelloWorld.class);
         h.add(MovieAPI.class);
+        h.add(GenreAPI.class);
         return h;
-
     }
 }

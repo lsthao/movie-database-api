@@ -1,6 +1,9 @@
 package edu.matc.entity;
 
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -21,8 +24,11 @@ public class Genre {
     @Column(name = "genreName")
     private String genreName;
 
+
     @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Movies> movies = new HashSet<>();
+
 
     /**
      * No-argument constructor
@@ -55,7 +61,6 @@ public class Genre {
     public void setGenreName(String genreName) {
         this.genreName = genreName;
     }
-
 
     public Set<Movies> getMovies() {
         return movies;

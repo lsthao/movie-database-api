@@ -13,8 +13,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonParserTest {
@@ -41,11 +39,19 @@ public class JsonParserTest {
 
         dao.getAll();
 
-        //logger.debug(parser.returnJson(movie));
+        logger.debug(parser.returnJson(dao));
 
         System.out.println(parser.returnJson(dao));
 
         assertNotNull(parser.returnJson(dao), "The parser contains json");
 
+    }
+
+    @Test
+    public void checkIfAllMoviesWorks() throws IOException {
+        GenericDAO dao = new GenericDAO(Movies.class);
+        JsonParser parser = new JsonParser();
+        dao.getAll();
+        assertNotNull(parser.returnJson(dao), "The parser contains json");
     }
 }

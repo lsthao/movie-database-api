@@ -23,8 +23,9 @@ public class DirectorAPI {
 
         List<Director> allDirectors = directorDAO.getAll();
 
-        String stringResponse = returnJson(allDirectors);
+        //String stringResponse = returnJson(allDirectors);
 
+        String stringResponse = "";
         return Response.status(200).entity(stringResponse).build();
     }
 
