@@ -30,5 +30,4 @@ public class MovieAPI {
             return Response.status(404).entity(output).build();
         }
     }
-
 }
