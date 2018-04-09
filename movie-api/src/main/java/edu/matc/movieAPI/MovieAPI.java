@@ -67,6 +67,31 @@ public class MovieAPI {
 
     @GET
     @Produces({"application/json", "text/plain"})
+    @Path("/filter")
+    public Response getMoviesByFilter() {
+        GenericDAO moviesDAO = new GenericDAO(Movies.class);
+
+        List<Movies> movieList = moviesDAO.getAll();
+
+        String stringResponse = "";
+        if (movieList != null) {
+            try {
+
+                stringResponse += jsonParser.returnJson(movieList);
+
+            } catch (IOException ioException) {
+                logger.error(ioException.getMessage());
+            }
+
+            return Response.status(200).entity(stringResponse).build();
+        } else {
+            String output = "Status 404: Movie List Not Found";
+            return Response.status(404).entity(output).build();
+        }
+    }
+
+    @GET
+    @Produces({"application/json", "text/plain"})
     @Path("/related-movies/{id}")
     public Response getRelatedMovies(@PathParam("id") String id) {
         MoviesDAO moviesDAO = new MoviesDAO();

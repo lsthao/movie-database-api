@@ -30,14 +30,14 @@ public class DirectorAPI {
 
     @Path("/all")
     public Response getDirectors() {
-        logger.info("getting directors");
+
         List<Director> allDirectors = directorDAO.getAll();
         String stringResponse = "";
-        logger.info("got all directors");
+
         try {
-            logger.info("starting the try block");
+
             stringResponse += jsonParser.returnJson(allDirectors);
-            logger.debug("in the try block and added parsedjson");
+
         } catch (IOException ioException) {
             logger.error(ioException.getMessage());
         }

@@ -3,6 +3,7 @@ package edu.matc.controller;
 
 import edu.matc.entity.Movies;
 import edu.matc.persistence.GenericDAO;
+import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.glassfish.jersey.client.ClientConfig;
 
@@ -31,26 +32,24 @@ import java.util.List;
 
 
 public class AllMovies extends HttpServlet {
+
+    Logger logger = Logger.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ObjectMapper mapper = new ObjectMapper();
-        ArrayList<Movies> moviesList = new ArrayList<Movies>();
 
         HttpSession session = request.getSession();
 
-        URI baseURI = UriBuilder.fromUri("http://localhost:8080/movieAPI/movies/all").build();
+        Client client = ClientBuilder.newClient();
 
-        ClientConfig config = new ClientConfig();
+        WebTarget target = client.target("http://localhost:8080/movieAPI/movies/all");
 
-        Client client = ClientBuilder.newClient(config);
+        String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
+        logger.info(movieResponse);
+        Movies[] movies = mapper.readValue(movieResponse, Movies[].class);
+        logger.info(movies);
 
-        WebTarget target = client.target(baseURI);
-
-        String allMovies = target.path("JSON/all").request().accept(MediaType.APPLICATION_JSON).get(String.class);
-        Movies[] movies = mapper.readValue(allMovies, Movies[].class);
-
-
-        request.setAttribute("movies", moviesList);
+        request.setAttribute("movies", movies);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/allmovies.jsp");
         dispatcher.forward(request, response);
 

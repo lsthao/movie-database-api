@@ -14,12 +14,22 @@
 <table border="1px" width="100px">
     <th>Id</th>
     <th>Movie Name</th>
+    <th>Description</th>
+    <th>Release Year</th>
+    <th>Genre</th>
+    <th>Director</th>
+    <th>Rating</th>
 
-    <c:forEach items="${allMovies}" var="movie">
+    <c:forEach items="${movies}" var="movie">
 
         <tr>
             <td>${movie.id}</td>
             <td>${movie.title}</td>
+            <td>${movie.description}</td>
+            <td>${movie.releaseYear}</td>
+            <td>${movie.genre.genreName}</td>
+            <td>${movie.director.directorName}</td>
+            <td>${movie.rating.ratingName}</td>
         </tr>
     </c:forEach>
 
