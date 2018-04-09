@@ -2,11 +2,10 @@ package edu.matc.entity;
 
 
 import org.codehaus.jackson.annotate.JsonIgnore;
-<<<<<<< HEAD
+
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
-=======
->>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
+
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

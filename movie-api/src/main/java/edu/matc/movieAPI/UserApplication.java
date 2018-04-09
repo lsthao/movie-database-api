@@ -20,12 +20,12 @@ public class UserApplication extends Application {
         HashSet h = new HashSet<Class<?>>();
         h.add(HelloWorld.class);
         h.add(MovieAPI.class);
-        h.add(RatingAPI.class)
-<<<<<<< HEAD
+        h.add(RatingAPI.class);
+
         h.add(GenreAPI.class);
-=======
+
         h.add(DirectorAPI.class);
->>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
+
         return h;
     }
 }

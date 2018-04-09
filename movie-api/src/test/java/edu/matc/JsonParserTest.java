@@ -14,11 +14,10 @@ import sun.net.www.content.text.Generic;
 
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
+
 import java.util.List;
 
->>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -55,13 +54,14 @@ public class JsonParserTest {
     }
 
     @Test
-<<<<<<< HEAD
+
     public void checkIfAllMoviesWorks() throws IOException {
         GenericDAO dao = new GenericDAO(Movies.class);
         JsonParser parser = new JsonParser();
         dao.getAll();
         assertNotNull(parser.returnJson(dao), "The parser contains json");
-=======
+    }
+
     public void getAllDirectors() {
         GenericDAO dao = new GenericDAO(Director.class);
         Director director = (Director) dao.getByID(1);
@@ -73,6 +73,5 @@ public class JsonParserTest {
             logger.error(ioexception.getMessage());
         }
 
->>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
     }
 }

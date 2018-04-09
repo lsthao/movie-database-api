@@ -42,13 +42,13 @@ public class DirectorAPI {
             logger.error(ioException.getMessage());
         }
 
-<<<<<<< HEAD
+
         //String stringResponse = returnJson(allDirectors);
 
-        String stringResponse = "";
-=======
+        //String stringResponse = "";
+
         logger.debug("string response: " + stringResponse);
->>>>>>> 34f8573a5bdba746a08061d3c28da64dadbcca57
+
         return Response.status(200).entity(stringResponse).build();
     }
 
