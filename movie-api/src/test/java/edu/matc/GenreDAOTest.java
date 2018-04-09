@@ -49,11 +49,11 @@ public class GenreDAOTest {
         assertEquals(initialNumberOfGenres + 1, genreDAO.getAll().size());
     }
 
-    @Test
-    public void deleteGenre() {
-        Genre genre = (Genre) genreDAO.getByID(3);
-        genreDAO.delete(genre);
-        assertNull(genreDAO.getByID(3));
-    }
+//    @Test
+//    public void deleteGenre() {
+//        Genre genre = (Genre) genreDAO.getByID(3);
+//        genreDAO.delete(genre);
+//        assertNull(genreDAO.getByID(3));
+//    }
 
 }

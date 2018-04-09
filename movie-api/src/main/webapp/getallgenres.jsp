@@ -11,17 +11,16 @@
 <head>
     <title>Genres</title>
 </head>
-<table border="1px" width="100px">
-    <th>Id</th>
-    <th>Genre Name</th>
 
-    <c:forEach items="${genreObject}" var="genre">
-
-        <tr>
-            <td>${genre.id}</td>
-            <td>${genre.genreName}</td>
-        </tr>
-    </c:forEach>
-
-</table>
+    <form>
+        <h2>Select a Genre</h2>
+            <select>
+                <option>Choose</option>
+                <c:forEach items="${genreObject}" var="genre">
+                    <option value = "${genre.genreName}">${genre.genreName}</option>
+                </c:forEach>
+            </select>
+        <br />
+        <button type="submit">Submit Choice</button>
+    </form>
 </html>
