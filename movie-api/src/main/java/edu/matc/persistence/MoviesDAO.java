@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MoviesDAO {
-    Logger logger =  Logger.getLogger(this.getClass());
+    private Logger logger =  Logger.getLogger(this.getClass());
     private Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }
