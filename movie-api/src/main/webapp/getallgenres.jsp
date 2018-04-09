@@ -12,7 +12,7 @@
     <title>Genres</title>
 </head>
 
-    <form>
+    <form action="/searchGenres" method="GET">
         <h2>Select a Genre</h2>
             <select>
                 <option>Choose</option>
@@ -21,6 +21,6 @@
                 </c:forEach>
             </select>
         <br />
-        <button type="submit">Submit Choice</button>
+        <button type="submit" name="submit" value="submit">Submit Choice</button>
     </form>
 </html>
