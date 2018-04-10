@@ -12,7 +12,7 @@
     <title>Genres</title>
 </head>
 
-<form action="/selectedGenre" method="GET">
+<form action="/movie-api/selectedGenre" method="GET">
     <h2>Select a Genre</h2>
     <select name="searchId">
         <option>Choose</option>

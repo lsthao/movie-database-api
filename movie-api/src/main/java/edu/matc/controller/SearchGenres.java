@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(
+        name = "/searchGenres",
         urlPatterns = {"/searchGenres"}
 )
 
@@ -29,7 +30,7 @@ public class SearchGenres extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target("http://localhost:8080/movieAPI/genres/all");
+        WebTarget target = client.target("http://localhost:8080/movie-api/movieAPI/genres/all");
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
         Genre[] genreObject = mapper.readValue(movieResponse, Genre[].class);

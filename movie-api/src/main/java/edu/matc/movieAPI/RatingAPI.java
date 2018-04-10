@@ -72,7 +72,7 @@ public class RatingAPI {
         List<Movies> moviesList = movieDao.getByPropertyEqual("rating", ratingId);
 
         String stringResponse = "";
-        if (moviesList != null) {
+        if (!moviesList.isEmpty()) {
             try {
                 logger.info("starting the try block");
                 stringResponse += jsonParser.returnJson(moviesList);

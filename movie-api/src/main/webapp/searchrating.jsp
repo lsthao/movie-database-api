@@ -12,7 +12,7 @@
     <title>Ratings</title>
 </head>
 
-<form action="/selectedRating" method="GET">
+<form action="/movie-api/selectedRating" method="GET">
     <h2>Select a Rating</h2>
     <select name="ratingId">
         <option>Choose</option>

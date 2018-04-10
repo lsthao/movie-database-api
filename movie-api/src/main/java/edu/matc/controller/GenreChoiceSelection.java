@@ -28,7 +28,7 @@ public class GenreChoiceSelection extends HttpServlet {
 
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target("http://localhost:8080/movieAPI/genres/getByGenreId/" + searchId);
+        WebTarget target = client.target("http://localhost:8080/movie-api/movieAPI/genres/getByGenreId/" + searchId);
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
         Movies[] genreObject = mapper.readValue(movieResponse, Movies[].class);

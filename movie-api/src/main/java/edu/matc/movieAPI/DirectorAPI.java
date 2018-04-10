@@ -75,7 +75,7 @@ public class DirectorAPI {
         List<Movies> moviesList = movieDao.getByPropertyEqual("director", directorId);
 
         String stringResponse = "";
-        if (moviesList != null) {
+        if (!moviesList.isEmpty()) {
             try {
                 logger.info("starting the try block");
                 stringResponse += jsonParser.returnJson(moviesList);

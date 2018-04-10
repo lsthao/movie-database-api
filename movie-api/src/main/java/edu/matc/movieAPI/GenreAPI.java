@@ -48,7 +48,7 @@ public class GenreAPI {
         List<Movies> moviesList = movieDao.getByPropertyEqual("genre", genreId);
 
         String stringResponse = "";
-        if (moviesList != null) {
+        if (!moviesList.isEmpty()) {
             try {
                 logger.info("starting the try block");
                 stringResponse += jsonParser.returnJson(moviesList);
