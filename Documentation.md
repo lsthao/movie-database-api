@@ -10,8 +10,8 @@
 # Using Movies Suggestor
 # Acknowledgments
 
-## 1.0 Intorudction
-The idea for this API came from the issue of not being able to find or decide on a movie. This API will be have a database of all different types of movies along with details that include: description, genre, rating, release year, director, etc. The RESTful Web Service will allow users to get movies based on things such as: 
+## 1.0 Introduction
+The idea for this API came from the issue of not being able to find or decide on a movie. This API features a database of all different types of movies along with details that include: description, genre, rating, release year, director, etc. The RESTful Web Service allows users to get movies based on things such as: 
 * Searching for a movie title
 * Filtering on genres, ratings, release years, directors etc
 * Amount of movies they want to receive 
