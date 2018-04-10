@@ -17,6 +17,11 @@ import java.util.Set;
  */
 @Entity(name = "Genre")
 @Table(name = "Genre")
+/**
+ *  This class maps out the relationship between Genre and movies and is responsible for Genre's
+ *  hibernate mapping
+ *  @author Jeff Herrmann
+ */
 public class Genre {
     @Id
     @GeneratedValue(generator = "increment")
@@ -47,36 +52,67 @@ public class Genre {
         this.genreName = genreName;
     }
 
-
+    /**
+     * Get the id of a genre
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * set the Id of a genre
+     * @param id the genre id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * returns the name of a genre
+     * @return genreName
+     */
     public String getGenreName() {
         return genreName;
     }
 
+    /**
+     * set the name of a genre
+     * @param genreName the genre name
+     */
     public void setGenreName(String genreName) {
         this.genreName = genreName;
     }
 
+    /**
+     * get the Movies object
+     * @return movies object
+     */
     public Set<Movies> getMovies() {
         return movies;
     }
 
+    /**
+     * Set the movies object
+     * @param movies the movies object
+     */
     public void setMovies(Set<Movies> movies) {
         this.movies = movies;
     }
 
+    /**
+     * Add a genre to the movies object
+     * @param movie movies object
+     */
     public void addMovie(Movies movie) {
         movies.add(movie);
         movie.setGenre(this);
     }
 
+    /**
+     * Remove a movie from the movies object
+     * @param movie the movie to be removed
+     */
     public void removeMovie(Movies movie) {
         movies.remove(movie);
         movie.setGenre(null);

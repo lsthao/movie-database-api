@@ -18,6 +18,12 @@ import java.io.IOException;
         name = "selectedRating",
         urlPatterns = {"/selectedRating"}
 )
+/**
+ * this servlet takes the id of the rating object sent into it and returns all the movies from the movies
+ * database where the rating id equals the chosen director
+ *
+ * @author Jeff Herrmann
+ */
 public class RatingChoiceSelection extends HttpServlet {
     /**
      * This is the doGet method for our servlet

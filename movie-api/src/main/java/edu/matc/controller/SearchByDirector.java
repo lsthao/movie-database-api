@@ -18,6 +18,11 @@ import java.io.IOException;
         urlPatterns = {"/searchDirector"}
 )
 
+/**
+ * this servlet retrieves all the directors and redirects that object to a jsp
+ *
+ * @author Jeff Herrmann
+ */
 public class SearchByDirector extends HttpServlet {
     /**
      * This is the doGet method for our servlet

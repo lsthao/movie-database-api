@@ -18,7 +18,11 @@ import java.io.IOException;
 @WebServlet(
         urlPatterns = {"/searchRating"}
 )
-
+/**
+ * this servlet retrieves all the ratings and redirects that object to a jsp
+ *
+ * @author Jeff Herrmann
+ */
 public class SearchByRating extends HttpServlet {
     /**
      * This is the doGet method for our servlet

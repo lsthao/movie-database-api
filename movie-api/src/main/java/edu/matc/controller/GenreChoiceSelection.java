@@ -20,6 +20,12 @@ import java.io.IOException;
         name = "selectedGenre",
         urlPatterns = {"/selectedGenre"}
 )
+/**
+ * this servlet takes the id of the genre object sent into it and returns all the movies from the movies
+ * database where the genre id equals the chosen genre
+ *
+ * @author Jeff Herrmann
+ */
 public class GenreChoiceSelection extends HttpServlet {
 
     /**

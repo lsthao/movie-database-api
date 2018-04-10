@@ -93,7 +93,11 @@ public class MoviesDAO {
 
         while (iter.hasNext()) {
             Movies movieEl = iter.next();
-            if (movieEl.getGenre().getGenreName().equals(movie.getGenre().getGenreName())
+            if(!movieEl.getGenre().getGenreName().equals(movie.getGenre().getGenreName())
+                    && !movieEl.getDirector().getDirectorName().equals(movie.getDirector().getDirectorName())
+                    && movieEl.getRating().getRatingName().equals(movie.getRating().getRatingName())){
+                iter.remove();
+            } else if (movieEl.getGenre().getGenreName().equals(movie.getGenre().getGenreName())
                     && movieEl.getDirector().getDirectorName().equals(movie.getDirector().getDirectorName())
                     && movieEl.getRating().getRatingName().equals(movie.getRating().getRatingName())) {
 

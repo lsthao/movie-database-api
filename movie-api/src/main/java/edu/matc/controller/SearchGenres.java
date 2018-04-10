@@ -23,7 +23,11 @@ import java.util.List;
         name = "/searchGenres",
         urlPatterns = {"/searchGenres"}
 )
-
+/**
+ * this servlet retrieves all the genres and redirects that object to a jsp
+ *
+ * @author Jeff Herrmann
+ */
 public class SearchGenres extends HttpServlet {
 
 

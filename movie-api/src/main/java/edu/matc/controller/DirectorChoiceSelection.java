@@ -19,7 +19,12 @@ import java.io.IOException;
         urlPatterns = {"/selectedDirector"}
 )
 
-
+/**
+ * this servlet takes the id of the director object sent into it and returns all the movies from the movies
+ * database where the director id equals the chosen director
+ *
+ * @author Jeff Herrmann
+ */
 public class DirectorChoiceSelection extends HttpServlet {
     @Override
     /**

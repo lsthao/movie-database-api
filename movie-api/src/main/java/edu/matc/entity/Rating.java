@@ -13,6 +13,9 @@ import java.util.Set;
  */
 @Entity(name = "Rating")
 @Table(name = "Rating")
+/**
+ *
+ */
 public class Rating {
 
     @Id
