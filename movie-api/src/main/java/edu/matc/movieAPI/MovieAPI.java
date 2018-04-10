@@ -12,14 +12,24 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
 
+
+/**
+ * This class is our MovieAPI Rest Service that has endpoints to get a movie by ID, get
+ * all movies, get movies based on a keyword(s) in the title, add a movie, and get related movies
+ * based on a single movie id
+ *
+ *
+ */
 @Path("/movies")
 public class MovieAPI {
     Logger logger =  Logger.getLogger(this.getClass());
     JsonParser jsonParser = new JsonParser();
 
-    // The Java method will process HTTP GET requests
+    /**
+     * This method returns a JSON response of a movie with the id that is passed into the path
+     * @param id a movie id
+     */
     @GET
-    // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces("text/plain")
     @Path("/{id}")
     public Response getMessage(@PathParam("id") String id) {
@@ -37,6 +47,9 @@ public class MovieAPI {
         }
     }
 
+    /**
+     * This method returns a JSON response of all movies in the database
+     */
     @GET
     @Produces({"application/json", "text/plain"})
     @Path("/all")
@@ -63,6 +76,10 @@ public class MovieAPI {
         }
     }
 
+    /**
+     * This method returns a JSON response of a movie containing the keyword passed into the path
+     * @param title a movie title keyword
+     */
     @GET
     @Produces({"application/json", "text/plain"})
     @Path("/search/{title}")
@@ -89,6 +106,15 @@ public class MovieAPI {
         }
     }
 
+    /**
+     * This method takes form parameters of movie details and adds a movie to the database
+     * @param title movie title
+     * @param description movie description
+     * @param releaseYear movie release year
+     * @param genre movie genre
+     * @param director movie director
+     * @param rating movie rating
+     */
     @POST
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)

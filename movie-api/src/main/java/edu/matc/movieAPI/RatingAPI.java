@@ -15,6 +15,12 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * This class is part of our MovieAPI Rest Service that has endpoints to get all ratings, get a
+ * rating by id, or get movies based on rating
+ *
+ *
+ */
 @Path("/ratings")
 public class RatingAPI {
     private Logger logger =  Logger.getLogger(this.getClass());

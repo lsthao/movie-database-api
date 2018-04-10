@@ -20,6 +20,7 @@ import java.io.IOException;
         name = "selectedGenre",
         urlPatterns = {"/selectedGenre"}
 )
+
 public class GenreChoiceSelection extends HttpServlet {
 
     /**
