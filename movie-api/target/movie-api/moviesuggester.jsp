@@ -20,6 +20,7 @@
 </div>
 <div>
     <form method="GET" action="movieAPI/movies/related-movies">
+        <div class="form-group">
         <div class="ui-widget">
             <label for="combobox">Find a Related Movie: </label>
             <select class="form-control" id="combobox" name="relatedMovie" required>
@@ -28,8 +29,12 @@
                 </c:forEach>
             </select>
         </div>
+        </div>
+        <div class="form-group">
         <button type="submit" class="btn btn-success" name="submit" id="submit" value="submit">Submit</button>
+        </div>
     </form>
 </div>
+<div><a href="index.jsp">Back to Homepage</a></div>
 </body>
 </html>

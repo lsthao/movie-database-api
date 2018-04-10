@@ -6,7 +6,7 @@
 <body>
 <h1>Welcome to Madison Movie Database!</h1>
 <h2>Links</h2>
-  <h3>
+  <h4>
       <ul>
           <li><a href="allMovies">See All Movies</a></li>
           <li><a href="searchmovie.jsp">Search Movies By Title</a></li>
@@ -14,7 +14,7 @@
           <li><a href="addMovieForm">Add a Movie</a></li>
           <li><a href="searchGenres">See All Genres</a></li>
       </ul>
-  </h3>
+  </h4>
 
 <h2>Movies Endpoints</h2>
   <h4>movieAPI/movies/{id}</h4>
