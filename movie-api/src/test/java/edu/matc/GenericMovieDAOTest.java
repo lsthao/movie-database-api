@@ -117,6 +117,16 @@ public class GenericMovieDAOTest {
     }
 
     @Test
+    public void getGenreByProperty() {
+        GenericDAO genreDAO = new GenericDAO(Genre.class);
+        List<Genre> genres = genreDAO.getByPropertyEqual("genreName", "comedy");
+        Genre genre = (Genre) genres.get(0);
+        logger.info(genre.getGenreName());
+
+        assertEquals(1, genres.size());
+    }
+
+    @Test
     public void getRelatedMoviesTest() {
         List<Movies> movies = entMoviesDAO.getRelatedMovies(1);
         for (Movies movie : movies){

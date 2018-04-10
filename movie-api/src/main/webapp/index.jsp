@@ -11,7 +11,7 @@
           <li><a href="allMovies">See All Movies</a></li>
           <li><a href="searchmovie.jsp">Search Movies By Title</a></li>
           <li><a href="movieSuggester">Get Movies Suggestions</a></li>
-          <li><a href="addMovie">Add a Movie</a></li>
+          <li><a href="addMovieForm">Add a Movie</a></li>
           <li><a href="searchGenres">See All Genres</a></li>
       </ul>
   </h3>

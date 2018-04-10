@@ -1,15 +1,16 @@
 package edu.matc.movieAPI;
 
+import edu.matc.entity.Director;
+import edu.matc.entity.Genre;
 import edu.matc.entity.Movies;
+import edu.matc.entity.Rating;
 import edu.matc.persistence.GenericDAO;
 import edu.matc.persistence.MoviesDAO;
 import org.apache.log4j.Logger;
 import edu.matc.util.JsonParser;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
@@ -65,29 +66,48 @@ public class MovieAPI {
         }
     }
 
-    @GET
-    @Produces({"application/json", "text/plain"})
-    @Path("/search/{title}")
-    public Response getMoviesByFilter(@PathParam("title") String title) {
-        GenericDAO moviesDAO = new GenericDAO(Movies.class);
+    @POST
+    @Path("/add")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response addMovie(@FormParam("title") String title,
+                             @FormParam("description") String description,
+                             @FormParam("releaseYear") String releaseYear,
+                             @FormParam("genre") String genre,
+                             @FormParam("director") String director,
+                             @FormParam("rating") String rating
+    ) {
 
-        List<Movies> movieList = moviesDAO.getByPropertyLike("title", title);
+        String result = "";
+        int status = 200;
+        int id = 0;
 
-        String stringResponse = "";
-        if (movieList != null) {
+        GenericDAO movieDAO = new GenericDAO(Movies.class);
+        GenericDAO genreDAO = new GenericDAO(Genre.class);
+        GenericDAO directorDAO = new GenericDAO(Director.class);
+        GenericDAO ratingDAO = new GenericDAO(Rating.class);
+
+        Genre movieGenre = (Genre)genreDAO.getByPropertyEqual("genreName", genre).get(0);
+        Director movieDirector = (Director)directorDAO.getByPropertyEqual("directorName", director).get(0);
+        Rating movieRating = (Rating)ratingDAO.getByPropertyEqual("ratingName", rating).get(0);
+
+        Movies newMovie = new Movies(description, Integer.parseInt(releaseYear), title, movieGenre, movieDirector, movieRating);
+        id = movieDAO.add(newMovie);
+
+        if (id > 0) {
             try {
-
-                stringResponse += jsonParser.returnJson(movieList);
-
+                result = jsonParser.returnJson(newMovie);
             } catch (IOException ioException) {
                 logger.error(ioException.getMessage());
             }
-
-            return Response.status(200).entity(stringResponse).build();
+            status = 201;
         } else {
-            String output = "Status 404: Movie List Not Found";
-            return Response.status(404).entity(output).build();
+            result = "Status 500: Movie was not added";
+            status = 500;
         }
+
+        return Response.status(status).entity(result).build();
+
     }
 
     @GET
