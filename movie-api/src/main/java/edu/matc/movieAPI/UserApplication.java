@@ -21,9 +21,7 @@ public class UserApplication extends Application {
         h.add(HelloWorld.class);
         h.add(MovieAPI.class);
         h.add(RatingAPI.class);
-
         h.add(GenreAPI.class);
-
         h.add(DirectorAPI.class);
 
         return h;

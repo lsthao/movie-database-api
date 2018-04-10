@@ -12,12 +12,12 @@
     <title>Genres</title>
 </head>
 
-    <form action="/searchGenres" method="GET">
+    <form action="/selectedGenre" method="GET">
         <h2>Select a Genre</h2>
-            <select>
+            <select name="searchId">
                 <option>Choose</option>
                 <c:forEach items="${genreObject}" var="genre">
-                    <option value = "${genre.genreName}">${genre.genreName}</option>
+                    <option name="search" value="<c:out value="${genre.id}"/>">${genre.genreName}</option>
                 </c:forEach>
             </select>
         <br />

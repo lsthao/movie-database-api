@@ -99,6 +99,9 @@ public class GenericMovieDAOTest {
         assertEquals("test movie title", movie.getTitle());
     }
 
+
+
+//
 //   @Test
 //   public void getMovieLikeProperty() {
 //
@@ -106,7 +109,14 @@ public class GenericMovieDAOTest {
 //        assertEquals(3, movies.size());
 //        assertEquals(1, movies.get(0).getId());
 //    }
-//
+
+    @Test
+    public void getMoviesFromIdSelected(){
+
+        List<Movies> movies = movieDAO.getByPropertyEqual("genre", "3");
+
+        assertEquals(2, movies.size());
+    }
 //   @Test
 //   public void getMovieByProperty() {
 //        List<Movies> movies = movieDAO.getByPropertyEqual("title", "test movie title");

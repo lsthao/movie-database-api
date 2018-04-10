@@ -47,8 +47,6 @@ public class JsonParserTest {
 
         logger.debug(parser.returnJson(dao));
 
-        System.out.println(parser.returnJson(dao));
-
         assertNotNull(parser.returnJson(dao), "The parser contains json");
 
     }
