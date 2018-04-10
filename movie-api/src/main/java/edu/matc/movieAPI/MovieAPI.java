@@ -67,11 +67,11 @@ public class MovieAPI {
 
     @GET
     @Produces({"application/json", "text/plain"})
-    @Path("/filter")
-    public Response getMoviesByFilter() {
+    @Path("/search/{title}")
+    public Response getMoviesByFilter(@PathParam("title") String title) {
         GenericDAO moviesDAO = new GenericDAO(Movies.class);
 
-        List<Movies> movieList = moviesDAO.getAll();
+        List<Movies> movieList = moviesDAO.getByPropertyLike("title", title);
 
         String stringResponse = "";
         if (movieList != null) {

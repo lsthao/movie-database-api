@@ -50,7 +50,7 @@ public class AllMovies extends HttpServlet {
         logger.info(movies);
 
         request.setAttribute("movies", movies);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/allmovies.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/moviesdisplay.jsp");
         dispatcher.forward(request, response);
 
     }
