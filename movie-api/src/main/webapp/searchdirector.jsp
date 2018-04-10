@@ -16,7 +16,7 @@
     <h1>Search For Director</h1>
 </div>
 <div>
-    <form method="GET" action="/selectedDirector">
+    <form method="GET" action="/movie-api/selectedDirector">
         <div class="form-group">
             <div class="ui-widget">
                 <label for="combobox">Find a Director: </label>

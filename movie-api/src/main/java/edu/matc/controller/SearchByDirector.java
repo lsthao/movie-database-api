@@ -24,7 +24,7 @@ public class SearchByDirector extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target("http://localhost:8080/movieAPI/directors/all");
+        WebTarget target = client.target("http://localhost:8080/movie-api/movieAPI/directors/all");
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
         Director[] directorObject = mapper.readValue(movieResponse, Director[].class);
 

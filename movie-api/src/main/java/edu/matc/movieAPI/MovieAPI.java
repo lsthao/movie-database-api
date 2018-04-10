@@ -110,9 +110,9 @@ public class MovieAPI {
         GenericDAO directorDAO = new GenericDAO(Director.class);
         GenericDAO ratingDAO = new GenericDAO(Rating.class);
 
-        Genre movieGenre = (Genre)genreDAO.getByPropertyEqual("genreName", genre).get(0);
-        Director movieDirector = (Director)directorDAO.getByPropertyEqual("directorName", director).get(0);
-        Rating movieRating = (Rating)ratingDAO.getByPropertyEqual("ratingName", rating).get(0);
+        Genre movieGenre = (Genre)genreDAO.getByPropertyString("genreName", genre).get(0);
+        Director movieDirector = (Director)directorDAO.getByPropertyString("directorName", director).get(0);
+        Rating movieRating = (Rating)ratingDAO.getByPropertyString("ratingName", rating).get(0);
 
         Movies newMovie = new Movies(description, Integer.parseInt(releaseYear), title, movieGenre, movieDirector, movieRating);
         id = movieDAO.add(newMovie);
