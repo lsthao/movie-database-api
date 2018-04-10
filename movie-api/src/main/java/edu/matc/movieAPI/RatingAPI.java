@@ -1,5 +1,6 @@
 package edu.matc.movieAPI;
 
+import edu.matc.entity.Movies;
 import edu.matc.entity.Rating;
 import edu.matc.persistence.GenericDAO;
 import jdk.nashorn.internal.objects.annotations.Getter;
@@ -58,6 +59,32 @@ public class RatingAPI {
             return Response.status(200).entity(stringResponse).build();
         } else {
             String output = "Status 404: Ratings List Not Found";
+            return Response.status(404).entity(output).build();
+        }
+    }
+
+    @GET
+    @Produces({"application/json", "text/plain"})
+    @Path("/getByRatingId/{ratingId}")
+    public Response getMoviesByGenreId(@PathParam("ratingId") String ratingId){
+        GenericDAO movieDao = new GenericDAO(Movies.class);
+
+        List<Movies> moviesList = movieDao.getByPropertyEqual("rating", ratingId);
+
+        String stringResponse = "";
+        if (moviesList != null) {
+            try {
+                logger.info("starting the try block");
+                stringResponse += jsonParser.returnJson(moviesList);
+                logger.debug("in the try block and added parsedjson for related movies");
+            } catch (IOException ioException) {
+                logger.error(ioException.getMessage());
+            }
+
+            logger.debug("string response: " + stringResponse);
+            return Response.status(200).entity(stringResponse).build();
+        } else {
+            String output = "Status 404: Movie List Not Found";
             return Response.status(404).entity(output).build();
         }
     }
