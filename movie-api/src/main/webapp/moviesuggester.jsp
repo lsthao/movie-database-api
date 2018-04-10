@@ -19,7 +19,7 @@
     <h3>Use our state of the art application to suggest similar movies within our database!</h3>
 </div>
 <div>
-    <form method="GET" action="/searchDirectors">
+    <form method="GET" action="/movieAPI/movies/related-movies">
         <div class="form-group">
         <div class="ui-widget">
             <label for="combobox">Find a Related Movie: </label>
