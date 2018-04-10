@@ -42,15 +42,10 @@ public class JsonParserTest {
     public void checkIfParserReturnsJson() throws IOException {
         GenericDAO dao = new GenericDAO(Genre.class);
         JsonParser parser = new JsonParser();
-
         dao.getAll();
 
         logger.debug(parser.returnJson(dao));
-
-        System.out.println(parser.returnJson(dao));
-
         assertNotNull(parser.returnJson(dao), "The parser contains json");
-
     }
 
     @Test

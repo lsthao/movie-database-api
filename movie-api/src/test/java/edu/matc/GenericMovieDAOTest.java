@@ -101,7 +101,7 @@ public class GenericMovieDAOTest {
 
     @Test
     public void getMovieByProperty() {
-        List<Movies> movies = movieDAO.getByPropertyEqual("title", "test movie title");
+        List<Movies> movies = movieDAO.getByPropertyEqual("genre", "1");
         for(Movies movie : movies) {
             logger.info(movie.getGenre().getGenreName());
         }

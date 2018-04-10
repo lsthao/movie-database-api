@@ -78,10 +78,12 @@ public class GenericDAO<T> {
 
         logger.debug("Searching for " + type + " with " + propertyName + " = " + value);
 
+        int searchId = Integer.parseInt(value);
+
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
         Root<T> root = query.from( type );
-        query.select(root).where(builder.equal(root.get(propertyName), value));
+        query.select(root).where(builder.equal(root.get(propertyName), searchId));
         List<T> entities = session.createQuery( query ).getResultList();
 
         session.close();
