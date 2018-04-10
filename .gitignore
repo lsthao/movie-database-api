@@ -1,15 +1,7 @@
 #ignore file
 .idea/*
 movieapi/.idea/*
-movie-api/.idea/dataSources.local.xml
-movie-api/.idea/dataSources.xml
-movie-api/.idea/dataSources/377c5a45-cf06-4124-a60f-3572a2d2b288.xml
-movie-api/.idea/workspace.xml
-movie-api/src/main/resources/hibernate.cfg.xml
-movie-api/src/test/resources/hibernate.cfg.xml
-movie-api/target/classes/hibernate.cfg.xml
-movie-api/target/movie-api.war
-movie-api/target/movie-api/WEB-INF/classes/hibernate.cfg.xml
-movie-api/target/test-classes/hibernate.cfg.xml
+/home/student/IdeaProjects/movie-database-api/movie-api/src/main/resources/hibernate.cfg.xml
+
 
 
