@@ -10,14 +10,8 @@
       <user-name>root</user-name>
       <introspection-schemas>*:movie_database</introspection-schemas>
     </data-source>
-    <data-source name="movie_database@localhost" uuid="2e4c183d-5489-4049-8cab-edd3c8d7eb1f">
-      <database-info product="MySQL" version="5.7.21-0ubuntu0.16.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.45 ( Revision: 9131eefa398531c7dc98776e8a3fe839e544c5b2 )">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
-      <user-name>root</user-name>
-      <introspection-schemas>*:movie_database</introspection-schemas>
+    <data-source name="movie_database@localhost" uuid="e13030d0-48a1-4378-8ff7-87423b677c31">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
     </data-source>
   </component>
 </project>
