@@ -22,8 +22,7 @@
     <form method="GET" action="movieAPI/movies/related-movies">
         <div class="ui-widget">
             <label for="combobox">Find a Related Movie: </label>
-            <select class="form-control" id="combobox" name="relatedMovie">
-                <option value="select">Select a Category</option>
+            <select class="form-control" id="combobox" name="relatedMovie" required>
                 <c:forEach var="movie" items="${movies}">
                     <option value="${movie.id}">${movie.title}</option>
                 </c:forEach>

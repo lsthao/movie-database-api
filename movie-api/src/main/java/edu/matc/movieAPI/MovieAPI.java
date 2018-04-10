@@ -118,21 +118,29 @@ public class MovieAPI {
 
         List<Movies> relatedList = moviesDAO.getRelatedMovies(Integer.parseInt(id));
 
-        String stringResponse = "";
-        if (relatedList != null) {
-            try {
-                logger.info("starting the try block");
-                stringResponse += jsonParser.returnJson(relatedList);
-                logger.debug("in the try block and added parsedjson for related movies");
-            } catch (IOException ioException) {
-                logger.error(ioException.getMessage());
-            }
 
+        String stringResponse = "";
+        int status = 200;
+
+        try {
+            logger.info("starting the try block");
+            stringResponse += jsonParser.returnJson(relatedList);
+            logger.debug("in the try block and added parsedjson for related movies");
+        } catch (IOException ioException) {
+            logger.error(ioException.getMessage());
+        }
+        if (relatedList.size() > 0) {
             logger.debug("string response: " + stringResponse);
-            return Response.status(200).entity(stringResponse).build();
-        } else {
-            String output = "Status 404: Movie List Not Found";
-            return Response.status(404).entity(output).build();
+            status = 201;
+            return Response.status(status).entity(stringResponse).build();
+        } else if(relatedList.size() == 0){
+            String output = "{\"message\":\"Status 404: No Movies Related! Sorry!\"}";
+            status = 404;
+            return Response.status(status).entity(output).build();
+        }  else {
+            String output = "{\"message\":\"Unexpected Error has Occurred. Self Destruct in 5.... 4... 3...\"}";
+            status = 500;
+            return Response.status(status).entity(output).build();
         }
     }
 
