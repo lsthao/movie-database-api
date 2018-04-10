@@ -5,11 +5,6 @@ import edu.matc.entity.Movies;
 import edu.matc.persistence.GenericDAO;
 import edu.matc.util.JsonParser;
 import org.apache.log4j.Logger;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
-import javax.persistence.Transient;
-import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -42,11 +37,6 @@ public class DirectorAPI {
             logger.error(ioException.getMessage());
         }
 
-
-        //String stringResponse = returnJson(allDirectors);
-
-        //String stringResponse = "";
-
         logger.debug("string response: " + stringResponse);
 
         return Response.status(200).entity(stringResponse).build();
@@ -74,7 +64,32 @@ public class DirectorAPI {
         }
 
         return Response.status(status).entity(result).build();
+    }
 
+    @GET
+    @Produces({"application/json", "text/plain"})
+    @Path("/getByDirectorId/{directorId}")
+    public Response getMoviesByGenreId(@PathParam("directorId") String directorId){
+        GenericDAO movieDao = new GenericDAO(Movies.class);
+
+        List<Movies> moviesList = movieDao.getByPropertyEqual("director", directorId);
+
+        String stringResponse = "";
+        if (moviesList != null) {
+            try {
+                logger.info("starting the try block");
+                stringResponse += jsonParser.returnJson(moviesList);
+                logger.debug("in the try block and added parsedjson for related movies");
+            } catch (IOException ioException) {
+                logger.error(ioException.getMessage());
+            }
+
+            logger.debug("string response: " + stringResponse);
+            return Response.status(200).entity(stringResponse).build();
+        } else {
+            String output = "Status 404: Movie List Not Found";
+            return Response.status(404).entity(output).build();
+        }
     }
 
 

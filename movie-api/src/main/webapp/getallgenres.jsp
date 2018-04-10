@@ -23,4 +23,5 @@
     <br />
     <button type="submit" name="submit" value="submit">Submit Choice</button>
 </form>
+<div><a href="index.jsp">Back to Homepage</a></div>
 </html>

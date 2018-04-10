@@ -13,6 +13,7 @@
           <li><a href="movieSuggester">Get Movies Suggestions</a></li>
           <li><a href="addMovieForm">Add a Movie</a></li>
           <li><a href="searchGenres">See All Genres</a></li>
+          <li><a href="searchDirector">Search For Directors</a></li>
       </ul>
   </h4>
 
