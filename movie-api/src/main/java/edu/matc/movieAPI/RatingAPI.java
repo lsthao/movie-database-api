@@ -32,7 +32,7 @@ public class RatingAPI {
 
             return Response.status(200).entity(output).build();
         } else {
-            String output = "Status 404: rating Not Found";
+            String output = jsonParser.returnJsonResponseMessage("Status 404: Rating not found");
             return Response.status(404).entity(output).build();
         }
     }
@@ -58,7 +58,7 @@ public class RatingAPI {
             logger.debug("string response: " + stringResponse);
             return Response.status(200).entity(stringResponse).build();
         } else {
-            String output = "Status 404: Ratings List Not Found";
+            String output = jsonParser.returnJsonResponseMessage("Status 404: Ratings List Not Found");
             return Response.status(404).entity(output).build();
         }
     }
@@ -74,17 +74,15 @@ public class RatingAPI {
         String stringResponse = "";
         if (moviesList != null) {
             try {
-                logger.info("starting the try block");
                 stringResponse += jsonParser.returnJson(moviesList);
-                logger.debug("in the try block and added parsedjson for related movies");
             } catch (IOException ioException) {
                 logger.error(ioException.getMessage());
             }
 
-            logger.debug("string response: " + stringResponse);
             return Response.status(200).entity(stringResponse).build();
+
         } else {
-            String output = "Status 404: Movie List Not Found";
+            String output = jsonParser.returnJsonResponseMessage("Status 404: No movies returned");
             return Response.status(404).entity(output).build();
         }
     }
