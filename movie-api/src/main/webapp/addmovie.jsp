@@ -37,7 +37,7 @@
         <c:forEach items="${ratings}" var="rating">
             <option value="${rating.ratingName}">${rating.ratingName}</option>
         </c:forEach>
-    </select>
+    </select><br>
     <input type="submit" value="submit movie">
 </form>
 </body>

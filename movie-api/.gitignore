@@ -1,3 +1,4 @@
 .idea/*
 hibernate.cfg.xml
 target
+database.properties

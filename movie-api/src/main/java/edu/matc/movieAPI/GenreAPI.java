@@ -31,7 +31,6 @@ public class GenreAPI {
         JsonParser parser = new JsonParser();
 
         List<Genre> genreList = genreDao.getAll();
-        //genreDao.getAll();
 
         String jsonGenre = parser.returnJson(genreList);
 
@@ -50,17 +49,16 @@ public class GenreAPI {
         String stringResponse = "";
         if (!moviesList.isEmpty()) {
             try {
-                logger.info("starting the try block");
+
                 stringResponse += jsonParser.returnJson(moviesList);
-                logger.debug("in the try block and added parsedjson for related movies");
+
             } catch (IOException ioException) {
                 logger.error(ioException.getMessage());
             }
 
-            logger.debug("string response: " + stringResponse);
             return Response.status(200).entity(stringResponse).build();
         } else {
-            String output = "Status 404: Movie List Not Found";
+            String output = jsonParser.returnJsonResponseMessage("Status 404: No movies returned");
             return Response.status(404).entity(output).build();
         }
     }

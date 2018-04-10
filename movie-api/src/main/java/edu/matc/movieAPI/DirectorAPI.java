@@ -37,7 +37,6 @@ public class DirectorAPI {
             logger.error(ioException.getMessage());
         }
 
-        logger.debug("string response: " + stringResponse);
 
         return Response.status(200).entity(stringResponse).build();
     }
@@ -56,10 +55,10 @@ public class DirectorAPI {
         id = directorDAO.add(newDirector);
 
         if (id > 0) {
-            result = "New director was added";
+            result = jsonParser.returnJsonResponseMessage("New director was added");
             status = 201;
         } else {
-            result = "Status 500: Director was not added";
+            result = jsonParser.returnJsonResponseMessage("Status 500: Director was not added");
             status = 500;
         }
 
@@ -84,10 +83,9 @@ public class DirectorAPI {
                 logger.error(ioException.getMessage());
             }
 
-            logger.debug("string response: " + stringResponse);
             return Response.status(200).entity(stringResponse).build();
         } else {
-            String output = "Status 404: Movie List Not Found";
+            String output = jsonParser.returnJsonResponseMessage("Status 404: No movies returned");
             return Response.status(404).entity(output).build();
         }
     }

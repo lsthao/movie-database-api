@@ -1,10 +1,14 @@
 package edu.matc.controller;
 
+
 import edu.matc.entity.Movies;
+import edu.matc.persistence.GenericDAO;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.glassfish.jersey.client.ClientConfig;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,26 +22,27 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.net.URI;
-import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @WebServlet(
-        urlPatterns = {"/search"}
+        urlPatterns = {"/allRelatedMovies"},
+        name="allRelatedMovies"
 )
-public class SearchByTitle extends HttpServlet {
+
+
+public class AllRelatedMovies extends HttpServlet {
 
     Logger logger = Logger.getLogger(this.getClass());
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ObjectMapper mapper = new ObjectMapper();
-        HttpSession session = request.getSession();
-
-        String searchTerm = request.getParameter("title");
+        String movieID = request.getParameter("relatedMovie");
+        logger.info(movieID);
         Client client = ClientBuilder.newClient();
-        logger.info(searchTerm);
-        String url = "http://localhost:8080/movieAPI/movies/search/" + searchTerm;
-        WebTarget target = client.target(URLEncoder.encode(url, "UTF-8"));
+
+        WebTarget target = client.target("http://localhost:8080/movieAPI/movies/related-movies/" + movieID);
 
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
         logger.info(movieResponse);
@@ -49,5 +54,4 @@ public class SearchByTitle extends HttpServlet {
         dispatcher.forward(request, response);
 
     }
-
 }

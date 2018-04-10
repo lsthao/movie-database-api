@@ -1,9 +1,6 @@
 package edu.matc.movieAPI;
 
-import edu.matc.entity.Director;
-import edu.matc.entity.Genre;
-import edu.matc.entity.Movies;
-import edu.matc.entity.Rating;
+import edu.matc.entity.*;
 import edu.matc.persistence.GenericDAO;
 import edu.matc.persistence.MoviesDAO;
 import org.apache.log4j.Logger;
@@ -35,7 +32,7 @@ public class MovieAPI {
 
         return Response.status(200).entity(output).build();
         } else {
-            String output = "Status 404: Movie Not Found";
+            String output = jsonParser.returnJsonResponseMessage("Status 404: No movies returned");
             return Response.status(404).entity(output).build();
         }
     }
@@ -49,7 +46,7 @@ public class MovieAPI {
         List<Movies> movieList = moviesDAO.getAll();
 
         String stringResponse = "";
-        if (movieList != null) {
+        if (!movieList.isEmpty()) {
             try {
                 logger.info("starting the try block");
                 stringResponse += jsonParser.returnJson(movieList);
@@ -61,7 +58,33 @@ public class MovieAPI {
             logger.debug("string response: " + stringResponse);
             return Response.status(200).entity(stringResponse).build();
         } else {
-            String output = "Status 404: Movie List Not Found";
+            String output = jsonParser.returnJsonResponseMessage("Status 404: No movies returned");
+            return Response.status(404).entity(output).build();
+        }
+    }
+
+    @GET
+    @Produces({"application/json", "text/plain"})
+    @Path("/search/{title}")
+    public Response searchMovieByTitle(@PathParam("title") String title) throws java.io.UnsupportedEncodingException {
+        GenericDAO moviesDAO = new GenericDAO(Movies.class);
+        JsonParser jsonParser = new JsonParser();
+        List<Movies> movieList = moviesDAO.getByPropertyLike("title", title.replace("+", " "));
+        logger.info(movieList);
+        String stringResponse = "";
+        if (!movieList.isEmpty()) {
+            try {
+
+                stringResponse += jsonParser.returnJson(movieList);
+
+            } catch (IOException ioException) {
+                logger.error(ioException.getMessage());
+            }
+
+            return Response.status(200).entity(stringResponse).build();
+        } else {
+
+            String output = jsonParser.returnJsonResponseMessage("Status 404: No movies returned");
             return Response.status(404).entity(output).build();
         }
     }
@@ -102,7 +125,7 @@ public class MovieAPI {
             }
             status = 201;
         } else {
-            result = "Status 500: Movie was not added";
+            result = jsonParser.returnJsonResponseMessage("Status 500: Movie couldn't be added");
             status = 500;
         }
 
@@ -112,35 +135,32 @@ public class MovieAPI {
 
     @GET
     @Produces({"application/json", "text/plain"})
-    @Path("/related-movies")
-    public Response getRelatedMovies(@QueryParam("relatedMovie")  String id) {
+    @Path("/related-movies/{relatedMovie}")
+    public Response getRelatedMovies(@PathParam("relatedMovie")  String relatedMovie) {
         MoviesDAO moviesDAO = new MoviesDAO();
 
-        List<Movies> relatedList = moviesDAO.getRelatedMovies(Integer.parseInt(id));
+        List<Movies> relatedList = moviesDAO.getRelatedMovies(Integer.parseInt(relatedMovie));
 
 
         String stringResponse = "";
         int status = 200;
 
         try {
-            logger.info("starting the try block");
             stringResponse += jsonParser.returnJson(relatedList);
-            logger.debug("in the try block and added parsedjson for related movies");
         } catch (IOException ioException) {
             logger.error(ioException.getMessage());
         }
         if (relatedList.size() > 0) {
-            logger.debug("string response: " + stringResponse);
-            status = 201;
-            return Response.status(status).entity(stringResponse).build();
+            return Response.status(201).entity(stringResponse).build();
         } else if(relatedList.size() == 0){
-            String output = "{\"message\":\"Status 404: No Movies Related! Sorry!\"}";
-            status = 404;
-            return Response.status(status).entity(output).build();
+
+            String output = jsonParser.returnJsonResponseMessage("Status 404: No Movies Related! Sorry!");
+
+            return Response.status(404).entity(output).build();
         }  else {
-            String output = "{\"message\":\"Unexpected Error has Occurred. Self Destruct in 5.... 4... 3...\"}";
-            status = 500;
-            return Response.status(status).entity(output).build();
+            String output = jsonParser.returnJsonResponseMessage("Unexpected Error has Occurred. Self Destruct in 5.... 4... 3...");
+
+            return Response.status(500).entity(output).build();
         }
     }
 
