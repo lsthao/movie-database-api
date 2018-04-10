@@ -27,7 +27,6 @@ import java.io.IOException;
  * @author Jeff Herrmann
  */
 public class GenreChoiceSelection extends HttpServlet {
-
     /**
      * This is the doGet method for our servlet
      * @param req HttpServletRequest
