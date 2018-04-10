@@ -6,7 +6,7 @@
 # 2.0 Getting Started
 # 2.1 Usage
 # 3.0 Example 1 - Adding a Movie
-# 4.0 Example 2
+# 4.0 Example 2 - Search by Rating, Genre, Title or Director
 # Using Movies Suggestor
 # Acknowledgments
 
@@ -35,7 +35,7 @@ Step 2. The user will see a form with fields for Title, Description, Release Yea
 Step 3. The user will be redirected to a confirmation page, displaying the properties (Like Genre, Director, etc) of the film that they entered. 
 Step 4. The movie will now appear in all other related searches such as Search By Director, Rating, or Genre.
 
-# 4.0 Example 2 - Search By Rating, Genre, or Director
+# 4.0 Example 2 - Search By Rating, Genre, Title or Director
 A useful trait of Madison Movie Database is the ability to filter all movies by a specified Genre, Rating, or Director. 
 Note: The steps to this process will demonstrate the "Search by Genre" ability. Searching by Rating or Director is the same process. 
 Step 1. Navigate to the "Search by Genre" link on the homepage and click it. 
