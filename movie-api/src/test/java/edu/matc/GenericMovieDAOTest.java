@@ -70,12 +70,12 @@ public class GenericMovieDAOTest {
         assertEquals(initialNumberOfMovies, moviesList.size());
     }
 
-//    @Test
-//    public void deleteMovieTest() {
-//        Movies movie = (Movies)movieDAO.getByID(3);
-//        movieDAO.delete(movie);
-//        assertNull(movieDAO.getByID(3));
-//    }
+    @Test
+    public void deleteMovieTest() {
+        Movies movie = (Movies)movieDAO.getByID(3);
+        movieDAO.delete(movie);
+        assertNull(movieDAO.getByID(3));
+    }
 
     @Test
     public void updateMovieTest() {
@@ -101,14 +101,14 @@ public class GenericMovieDAOTest {
 
 
 
-//
-//   @Test
-//   public void getMovieLikeProperty() {
-//
-//        List<Movies> movies = entMoviesDAO.getByPropertyLike("title", "test");
-//        assertEquals(3, movies.size());
-//        assertEquals(1, movies.get(0).getId());
-//    }
+
+   @Test
+   public void getMovieLikeProperty() {
+
+        List<Movies> movies = entMoviesDAO.getByPropertyLike("title", "test");
+        assertEquals(3, movies.size());
+        assertEquals(1, movies.get(0).getId());
+    }
 
     @Test
     public void getMoviesFromIdSelected(){
@@ -117,25 +117,26 @@ public class GenericMovieDAOTest {
 
         assertEquals(2, movies.size());
     }
-//   @Test
-//   public void getMovieByProperty() {
-//        List<Movies> movies = movieDAO.getByPropertyEqual("title", "test movie title");
-//        for(Movies movie : movies) {
-//            logger.info(movie.getGenre().getGenreName());
-//       }
-//        assertEquals(1, movies.size());
-//    }
-//
-//    @Test
-//    public void getRelatedMoviesTest() {
-//        List<Movies> movies = entMoviesDAO.getRelatedMovies(1);
-//        for (Movies movie : movies){
-//                logger.info(movie.getTitle());
-//                logger.info(movie.getGenre().getGenreName());
-//                logger.info(movie.getDirector().getDirectorName());
-//        }
-//        // TODO asserts Equals and trues
-//    }
+
+   @Test
+   public void getMovieByProperty() {
+        List<Movies> movies = movieDAO.getByPropertyEqual("title", "test movie title");
+        for(Movies movie : movies) {
+            logger.info(movie.getGenre().getGenreName());
+       }
+        assertEquals(1, movies.size());
+    }
+
+    @Test
+    public void getRelatedMoviesTest() {
+        List<Movies> movies = entMoviesDAO.getRelatedMovies(1);
+        for (Movies movie : movies){
+                logger.info(movie.getTitle());
+                logger.info(movie.getGenre().getGenreName());
+                logger.info(movie.getDirector().getDirectorName());
+        }
+        // TODO asserts Equals and trues
+    }
 
 
 }
