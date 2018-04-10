@@ -112,11 +112,11 @@ public class MovieAPI {
 
     @GET
     @Produces({"application/json", "text/plain"})
-    @Path("/related-movies")
-    public Response getRelatedMovies(@QueryParam("relatedMovie")  String id) {
+    @Path("/related-movies/{relatedMovie}")
+    public Response getRelatedMovies(@PathParam("relatedMovie")  String relatedMovie) {
         MoviesDAO moviesDAO = new MoviesDAO();
 
-        List<Movies> relatedList = moviesDAO.getRelatedMovies(Integer.parseInt(id));
+        List<Movies> relatedList = moviesDAO.getRelatedMovies(Integer.parseInt(relatedMovie));
 
 
         String stringResponse = "";
