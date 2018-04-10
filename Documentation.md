@@ -22,14 +22,14 @@ This service has the unique ability to suggest movies based on related movies.
 To get started simply navigate to the homepage of Madison Movie Database. All the functionality is ready to use out of the box. 
 
 ## 2.1 Usage 
-The first thing a user will notice is the homepage which contains a handful of links suchs as "See all Movies", "Add a movie", and "Search by rating". These will redirect the user to a web page that filters through the database based on the terms that the user searched by. For instance, if a user were to search for all movies with a rating of "G", this service will return the list of all movies that have a "G"  rating. 
+The first thing a user will notice is the homepage which contains a handful of links such as "See all Movies", "Add a movie", and "Search by rating". These will redirect the user to a web page that filters through the database based on the terms that the user searched by. For instance, if a user were to search for all movies with a rating of "G", this service will return the list of all movies that have a "G"  rating. 
 
 Similarly, if a user wants to add a movie to the database they have the ability to do so by clicking the "Add a movie link" and entering the details of the movie that they are entering. Once these changes are entered the user will be find that the movie will be searchable by all the links on the home page. 
 
-If a user wants to get a movie suggested to them the simple need to click on the "Get Movie Suggestion" link and enter the title of a movie that they like. The service will sort through the movies in it's database and return those that have either: A) the same director, B) the same genre, or C) both. 
+If a user wants to get a movie suggested to them they simple need to click on the "Get Movie Suggestion" link and enter the title of a movie that they like. The service will sort through the movies in its database and return those that have either: A) the same director, B) the same genre, or C) both. 
 
 # 3.0 Example 1 - Adding a Movie
-One of the actions a user is likely to make is to add a movie. Madison Movie Database makes this process simple with it's ability to add movies. 
+One of the actions a user is likely to make is to add a movie. Madison Movie Database makes this process simple with its ability to add movies. 
 Step 1. Navigate to the "Add a movie" link on the homepage and click it.
 Step 2. The user will see a form with fields for Title, Description, Release Year, Genre, Director, and Rating. Fill these fields out and click "submit movie".
 Step 3. The user will be redirected to a confirmation page, displaying the properties (Like Genre, Director, etc) of the film that they entered. 
@@ -51,8 +51,8 @@ Step 4. If the database find a similar movie (or movies) the program will output
 
 # Acknowledgements
 Contributors:
-Leja Thao
-Ren Thao
+Leja Thao,
+Ren Thao,
 Jeff Herrmann
 
 
