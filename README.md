@@ -17,8 +17,8 @@ Week 10
 
 Week 11
 - [x] Map out relationships
-- [ ] Create API endpoints
-- [ ] Create webapp to consume api
+- [x] Create API endpoints
+- [x] Create webapp to consume api
 
 Week 12
 - [ ] team project presentations!
@@ -50,15 +50,6 @@ Week 12
 * return added movie in JSON
 
 #### GET
-#### movieAPI/movies/filter
-* gets movies based on filters:
- * genre
- * sorted by (?)
- * director
- * release year (range?)
- * rating 
- * amount of movies to return (otherwise will return all)
- 
 
 #### movieAPI/movies/search/< keyword >
 * searches movie titles based on keyword
