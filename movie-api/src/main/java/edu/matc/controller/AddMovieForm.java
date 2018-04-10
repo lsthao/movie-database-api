@@ -40,11 +40,11 @@ public class AddMovieForm extends HttpServlet{
         ObjectMapper mapper = new ObjectMapper();
         HttpSession session = request.getSession();
 
-        Genre[] genres = mapper.readValue(getResponse("http://localhost:8080/movieAPI/genres/all"),
+        Genre[] genres = mapper.readValue(getResponse("http://localhost:8080/movie-api/movieAPI/genres/all"),
                 Genre[].class);
-        Director[] directors = mapper.readValue(getResponse("http://localhost:8080/movieAPI/directors/all"),
+        Director[] directors = mapper.readValue(getResponse("http://localhost:8080/movie-api/movieAPI/directors/all"),
                 Director[].class);
-        Rating[] ratings = mapper.readValue(getResponse("http://localhost:8080/movieAPI/ratings/all"),
+        Rating[] ratings = mapper.readValue(getResponse("http://localhost:8080/movie-api/movieAPI/ratings/all"),
                 Rating[].class);
 
         request.setAttribute("genres", genres);

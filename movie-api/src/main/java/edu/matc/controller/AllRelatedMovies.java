@@ -42,7 +42,7 @@ public class AllRelatedMovies extends HttpServlet {
         logger.info(movieID);
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target("http://localhost:8080/movieAPI/movies/related-movies/" + movieID);
+        WebTarget target = client.target("http://localhost:8080/movie-api/movieAPI/movies/related-movies/" + movieID);
 
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
         logger.info(movieResponse);

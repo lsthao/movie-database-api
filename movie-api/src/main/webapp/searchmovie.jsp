@@ -12,7 +12,7 @@
 </head>
 <body>
 <h3>Search Movies By Title</h3>
-    <form method="GET" action="search">
+    <form method="GET" action="/movie-api/search">
         <input type="text" id="title" name="title">
         <input type="submit" value="submit">
     </form>

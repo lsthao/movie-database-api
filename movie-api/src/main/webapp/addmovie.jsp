@@ -13,7 +13,7 @@
 </head>
 <body>
 <h4>Add a Movie to the database</h4>
-<form method="POST" action="movieAPI/movies/add">
+<form method="POST" action="/movie-api/movieAPI/movies/add">
     <p>Title</p>
     <input type="text" name="title">
     <p>Description</p>

@@ -36,7 +36,7 @@ public class SearchByTitle extends HttpServlet {
         String searchTerm = request.getParameter("title");
         Client client = ClientBuilder.newClient();
         logger.info(searchTerm);
-        String url = "http://localhost:8080/movieAPI/movies/search/" + searchTerm;
+        String url = "http://localhost:8080/movie-api/movieAPI/movies/search/" + searchTerm;
         WebTarget target = client.target(URLEncoder.encode(url, "UTF-8"));
 
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);

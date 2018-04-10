@@ -25,7 +25,7 @@ public class SearchByRating extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target("http://localhost:8080/movieAPI/ratings/all");
+        WebTarget target = client.target("http://localhost:8080/movie-api/movieAPI/ratings/all");
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
         Rating[] ratingObject = mapper.readValue(movieResponse, Rating[].class);
 

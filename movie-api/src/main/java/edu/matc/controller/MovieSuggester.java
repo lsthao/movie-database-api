@@ -32,7 +32,7 @@ public class MovieSuggester extends HttpServlet {
         HttpSession session = req.getSession();
         ObjectMapper mapper = new ObjectMapper();
 
-        URI baseURI = UriBuilder.fromUri("http://localhost:8080/movieAPI/movies/").build();
+        URI baseURI = UriBuilder.fromUri("http://localhost:8080/movie-api/movieAPI/movies/").build();
 
         ClientConfig config = new ClientConfig();
         Client client = ClientBuilder.newClient(config);

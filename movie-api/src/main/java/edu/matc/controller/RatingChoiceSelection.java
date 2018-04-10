@@ -26,7 +26,7 @@ public class RatingChoiceSelection extends HttpServlet {
 
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target("http://localhost:8080/movieAPI/ratings/getByRatingId/" + searchId);
+        WebTarget target = client.target("http://localhost:8080/movie-api/movieAPI/ratings/getByRatingId/" + searchId);
 
         String movieResponse = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
