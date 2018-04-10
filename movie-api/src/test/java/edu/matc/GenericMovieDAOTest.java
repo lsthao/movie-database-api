@@ -110,14 +110,14 @@ public class GenericMovieDAOTest {
 
     @Test
     public void getRelatedMoviesTest() {
-        List<Movies> movies = entMoviesDAO.getRelatedMovies(2);
+        List<Movies> movies = entMoviesDAO.getRelatedMovies(3);
         for (Movies movie : movies){
             logger.info(movie.getTitle());
-            logger.info(movie.getGenre().getGenreName());
-            logger.info(movie.getDirector().getDirectorName());
         }
-        assertEquals(1, movies.size());
+
+        assertEquals(5, movies.size());
         assertNotNull(movies);
+        assertEquals("should be first", movies.get(0).getTitle());
     }
 
 

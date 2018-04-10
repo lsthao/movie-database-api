@@ -11,7 +11,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MoviesDAO {
@@ -37,6 +39,7 @@ public class MoviesDAO {
             logger.info("both have stuff");
             movieArrayParser(movies, dMovies, movie);
             movieArrayParser(movies, gMovies, movie);
+            movies = addMostAlikeMoviesOnTop(movies, movie);
         }else if (dMovies.size() > 1 && gMovies.size() <= 1) {
             logger.info("genre has none");
             movieArrayParser(movies, dMovies, movie);
@@ -49,6 +52,25 @@ public class MoviesDAO {
             logger.info("something went wrong");
         }
 
+        return movies;
+    }
+
+    private List<Movies> addMostAlikeMoviesOnTop(List<Movies> movies, Movies movie) {
+        ArrayList<Movies> newList = new ArrayList<>();
+        Iterator<Movies> iter = movies.iterator();
+
+        while (iter.hasNext()) {
+            Movies movieEl = iter.next();
+            if (movieEl.getGenre().getGenreName().equals(movie.getGenre().getGenreName()) &&
+                    movieEl.getDirector().getDirectorName().equals(movie.getDirector().getDirectorName())) {
+                newList.add(movieEl);
+                iter.remove();
+            } else {
+                logger.info("i did nothing");
+            }
+        }
+        newList.addAll(movies);
+        movies = newList;
         return movies;
     }
 

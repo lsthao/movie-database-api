@@ -29,7 +29,10 @@
     <ul>
         <li>Endpoint to search for movie by title</li>
     </ul>
-  <h4>movieAPI/</h4>
+  <h4>movieAPI/movies/related-movies/</h4>
+    <ul>
+        <li>Endpoint that returns similar Movies in our database!</li>
+    </ul>
 
 <h2>Genre Endpoints</h2>
   <h4>movieAPI/genre/JSON/all</h4>
