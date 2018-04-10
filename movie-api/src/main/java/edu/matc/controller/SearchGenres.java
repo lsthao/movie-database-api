@@ -37,6 +37,5 @@ public class SearchGenres extends HttpServlet {
         req.setAttribute("genreObject", genreObject);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/getallgenres.jsp");
         dispatcher.forward(req, resp);
-
     }
 }
