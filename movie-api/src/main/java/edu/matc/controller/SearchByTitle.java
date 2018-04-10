@@ -23,10 +23,28 @@ import java.net.URLEncoder;
 @WebServlet(
         urlPatterns = {"/search"}
 )
+/**
+ * A servlet class that gets a keyword from a form and passes it into the search endpoint in our
+ * REST Web Service, returning any movies with titles that contain that keyword and forwarding
+ * it to display in html table
+ *
+ * @author Leja Thao
+ *
+ *
+ */
 public class SearchByTitle extends HttpServlet {
 
     Logger logger = Logger.getLogger(this.getClass());
 
+
+    /**
+     * This is the doGet method for our servlet
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

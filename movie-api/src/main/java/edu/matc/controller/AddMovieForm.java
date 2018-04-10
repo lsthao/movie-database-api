@@ -33,9 +33,26 @@ import java.util.List;
         urlPatterns = {"/addMovieForm"}
 )
 
+
+/**
+ * A servlet class that gets genres, directors and ratings from our REST Webservice in order
+ * to populate their select dropdown elements in the add movie form
+ *
+ * @author Leja Thao
+ *
+ *
+ */
 public class AddMovieForm extends HttpServlet{
     Logger logger = Logger.getLogger(this.getClass());
+
     @Override
+    /**
+     * This is the doGet method for our servlet
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ObjectMapper mapper = new ObjectMapper();
         HttpSession session = request.getSession();
@@ -55,6 +72,10 @@ public class AddMovieForm extends HttpServlet{
         dispatcher.forward(request, response);
     }
 
+    /**
+     * This is a method that returns the response from a rest call
+     * @param endpointURL the endpoint url that we are making a rest call to
+     */
     public String getResponse(String endpointURL) {
 
         Client client = ClientBuilder.newClient();

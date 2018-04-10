@@ -18,8 +18,17 @@ import java.io.IOException;
         name = "selectedDirector",
         urlPatterns = {"/selectedDirector"}
 )
+
+
 public class DirectorChoiceSelection extends HttpServlet {
     @Override
+    /**
+     * This is the doGet method for our servlet
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ObjectMapper mapper = new ObjectMapper();
         String searchId = req.getParameter("directorId");

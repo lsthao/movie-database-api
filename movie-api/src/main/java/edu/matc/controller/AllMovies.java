@@ -30,10 +30,25 @@ import java.util.List;
     urlPatterns = {"/allMovies"}
 )
 
-
+/**
+ * A servlet class that gets a response from the all movies endpoint in our REST Web Service
+ * and forwards it to a movie display jsp to display all the movies in a table.
+ *
+ * @author Leja Thao
+ *
+ *
+ */
 public class AllMovies extends HttpServlet {
 
     Logger logger = Logger.getLogger(this.getClass());
+
+    /**
+     * This is the doGet method for our servlet
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ObjectMapper mapper = new ObjectMapper();

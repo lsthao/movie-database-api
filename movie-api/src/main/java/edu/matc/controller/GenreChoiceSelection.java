@@ -21,6 +21,14 @@ import java.io.IOException;
         urlPatterns = {"/selectedGenre"}
 )
 public class GenreChoiceSelection extends HttpServlet {
+
+    /**
+     * This is the doGet method for our servlet
+     * @param req HttpServletRequest
+     * @param resp HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ObjectMapper mapper = new ObjectMapper();

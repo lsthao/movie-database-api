@@ -28,6 +28,13 @@ import java.net.URI;
 public class MovieSuggester extends HttpServlet {
 
     @Override
+    /**
+     * This is the doGet method for our servlet
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         ObjectMapper mapper = new ObjectMapper();
