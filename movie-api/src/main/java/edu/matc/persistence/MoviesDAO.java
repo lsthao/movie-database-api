@@ -29,18 +29,24 @@ public class MoviesDAO {
         session.close();
 
 
-        List<Movies> dMovies = getByPropertyEqualDirector("director", movie.getDirector());
-        List<Movies> gMovies = getByPropertyEqualGenre("genre", movie.getGenre());
+        List<Movies> dMovies = getByPropertyEqualDirector( movie.getDirector());
+        List<Movies> gMovies = getByPropertyEqualGenre( movie.getGenre());
 
-        if (dMovies != null && gMovies != null ) {
+
+        if (dMovies.size() > 1 && gMovies.size() > 1 ) {
+            logger.info("both have stuff");
             movieArrayParser(movies, dMovies, movie);
             movieArrayParser(movies, gMovies, movie);
-        }else if (dMovies != null) {
+        }else if (dMovies.size() > 1 && gMovies.size() <= 1) {
+            logger.info("genre has none");
             movieArrayParser(movies, dMovies, movie);
-        } else if (gMovies != null) {
+        } else if (dMovies.size() <= 1 && gMovies.size() > 1) {
+            logger.info("director has none");
            movieArrayParser(movies,gMovies, movie);
+        } else if (dMovies.size() <= 1 && gMovies.size() <= 1){
+            logger.info("nothing was alike");
         } else {
-            logger.info("double null array or something went wrong");
+            logger.info("something went wrong");
         }
 
         return movies;
@@ -63,47 +69,30 @@ public class MoviesDAO {
         }
     }
 
-    public List<Movies> getByPropertyLike(String propertyName, String value) {
+    private List<Movies> getByPropertyEqualGenre( Genre genre) {
         Session session = getSession();
 
-        logger.debug("Searching for user with {} = {}, " + propertyName + ", " + value);
-
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Movies> query = builder.createQuery( Movies.class );
-        Root<Movies> root = query.from( Movies.class);
-        Expression<String> propertyPath = root.get(propertyName);
-
-        query.where(builder.like(propertyPath, "%" + value + "%"));
-
-        List<Movies> movies = session.createQuery( query ).getResultList();
-        session.close();
-        return movies;
-    }
-
-    private List<Movies> getByPropertyEqualGenre(String propertyName, Genre genre) {
-        Session session = getSession();
-
-        logger.debug("Searching for movies with " + propertyName + " = " + genre);
+        logger.debug("Searching for movies with genre" + " = " + genre);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Movies> query = builder.createQuery( Movies.class );
         Root<Movies> root = query.from( Movies.class );
-        query.select(root).where(builder.equal(root.get(propertyName), genre));
+        query.select(root).where(builder.equal(root.get("genre"), genre));
         List<Movies> movies = session.createQuery( query ).getResultList();
 
         session.close();
         return movies;
     }
 
-    private List<Movies> getByPropertyEqualDirector(String propertyName, Director director) {
+    private List<Movies> getByPropertyEqualDirector(Director director) {
         Session session = getSession();
 
-        logger.debug("Searching for movies with " + propertyName + " = " + director);
+        logger.debug("Searching for movies with director" + " = " + director);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Movies> query = builder.createQuery( Movies.class );
         Root<Movies> root = query.from( Movies.class );
-        query.select(root).where(builder.equal(root.get(propertyName), director));
+        query.select(root).where(builder.equal(root.get("director"), director));
         List<Movies> movies = session.createQuery( query ).getResultList();
 
         session.close();
